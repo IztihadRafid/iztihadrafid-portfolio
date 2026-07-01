@@ -1,16 +1,19 @@
+"use client";
 import Image from "next/image";
 import ButtonHire from "./ButtonHire";
 import SplitText from "./SplitText";
 import TextType from "./TextType";
 import myImg from "../../public/assets/mypic.webp";
+import ProfileCard from "./ProfileCard";
+import SocialCard from "./SocialCard";
 const Banner = () => {
   return (
-    <div className="max-w-8xl mx-auto">
-      <div className="flex justify-between items-center">
-        <section>
+    <div className="max-w-8xl mx-auto ">
+      <div className="flex md:flex-row flex-col justify-between items-center p-10">
+        <section className="">
           <SplitText
             text="Hi, I`m"
-            className="text-4xl text font-semibold text-center text-yellow-1"
+            className="text-4xl text font-semibold  text-yellow-1"
             delay={50}
             duration={1.25}
             ease="power3.out"
@@ -22,11 +25,11 @@ const Banner = () => {
             textAlign="center"
           />
           <div>
-            <h1 className="text-6xl font-semibold text-white mb-6">
+            <h1 className="text-4xl lg:text-6xl font-semibold text-center md:text-left text-white mb-6">
               Md. Iztihad Rafid
             </h1>
           </div>
-          <div>
+          <div className="text-center md:text-left">
             <TextType
               className="text-2xl text-gray-2"
               text={["Frontend Developer", "MERN Stack Developer"]}
@@ -42,7 +45,7 @@ const Banner = () => {
             />
           </div>
 
-          <div className="mt-10 mb-10">
+          <div className="mt-10 mb-10 flex justify-center md:justify-start items-center">
             <ButtonHire
               text="Hire Me"
               target="_blank"
@@ -50,13 +53,13 @@ const Banner = () => {
             />
           </div>
         </section>
-        <section className="flex items-center justify-center py-10">
-          <div className="relative">
+        <section className="flex items-center justify-center lg:py-10 ">
+          <div className="relative w-full overflow-x-hidden">
             {/* Glow Effect outside image*/}
-            <div className="absolute -inset-1 rounded-full bg-linear-to-r from-yellow-1 to-[#F59E0B] blur-2xl opacity-20"></div>
+            {/* <div className="absolute -inset-1 rounded-full bg-linear-to-r from-yellow-1 to-[#F59E0B] blur-2xl opacity-20"></div> */}
 
             {/* Image  */}
-            <div className="relative rounded-full p-1 bg-linear-to-r from-yellow-1 to-[#F59E0B]">
+            {/* <div className="relative rounded-full p-1 bg-linear-to-r from-yellow-1 to-[#F59E0B]">
               <Image
                 src={myImg}
                 alt="Md. Iztihad Rafid"
@@ -65,10 +68,29 @@ const Banner = () => {
                 className="rounded-full border-4 border-gray-2 transition-transform duration-500 hover:scale-105"
                 
               />
-            </div>
+              
+            </div> */}
+            <ProfileCard
+              name=""
+              title=""
+              handle="javicodes"
+              status="Online"
+              contactText="Contact Me"
+              avatarUrl={"/assets/mypic.webp"}
+              showUserInfo={false}
+              enableTilt={true}
+              enableMobileTilt={false}
+              behindGlowColor="rgba(125, 190, 255, 0.67)"
+              iconUrl="../../public/assets/mypic.webp"
+              behindGlowEnabled
+              innerGradient="linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)"
+            />
           </div>
         </section>
       </div>
+      <section className="flex justify-center items-center">
+              <SocialCard></SocialCard>
+      </section>
     </div>
   );
 };

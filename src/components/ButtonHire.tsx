@@ -9,10 +9,10 @@ interface ButtonHireProps {
 
 const ButtonHire = ({ text, href ,target }: ButtonHireProps): JSX.Element => {
   return (
-    <StyledWrapper>
-      <div className="container">
-        <div className="btn">
-          <a target={target} href={href}>{text}</a>
+    <StyledWrapper >
+      <div className="container ">
+        <div className="btn ">
+          <a target={target} href={href} >{text}</a>
         </div>
       </div>
     </StyledWrapper>
