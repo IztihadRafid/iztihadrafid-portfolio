@@ -13,7 +13,7 @@ const Banner = () => {
         <section className="">
           <SplitText
             text="Hi, I`m"
-            className="text-4xl text font-semibold  text-yellow-1"
+            className="text-6xl text font-semibold  text-red-1"
             delay={50}
             duration={1.25}
             ease="power3.out"

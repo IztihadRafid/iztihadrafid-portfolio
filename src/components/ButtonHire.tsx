@@ -9,128 +9,57 @@ interface ButtonHireProps {
 
 const ButtonHire = ({ text, href ,target }: ButtonHireProps): JSX.Element => {
   return (
-    <StyledWrapper >
-      <div className="container ">
-        <div className="btn ">
+     <StyledWrapper>
+       <div className="btn ">
           <a target={target} href={href} >{text}</a>
         </div>
-      </div>
     </StyledWrapper>
+    
   );
 };
 const StyledWrapper = styled.div`
-  .container .btn {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 200px;
-    height: 50px;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .btn {
+    font-size: 1.2rem;
+    padding: 1rem 2.5rem;
+    border: none;
+    outline: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: rgb(14, 14, 26);
+    color: #E7E7E7;
+    font-weight: 700;
+
+    box-shadow: 0px 0px 30px #912927;
+
+    -webkit-box-reflect: below 10px
+      linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.4)
+      );
+
+    transition:
+      background 0.6s ease,
+      color 0.6s ease,
+      box-shadow 0.6s ease,
+      transform 0.6s ease;
   }
 
-  .container .btn a {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 30px;
-    padding: 10px;
-    letter-spacing: 1px;
-    text-decoration: none;
-    overflow: hidden;
-    color: #fff;
-    font-weight: 400px;
-    z-index: 1;
-    transition: 0.5s;
-    backdrop-filter: blur(15px);
-  }
-
-  .container .btn:hover a {
-    letter-spacing: 3px;
-  }
-
-  .container .btn a::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
+  .btn:hover {
     background: linear-gradient(
-      to left,
-      rgba(255, 255, 255, 0.15),
-      transparent
+      135deg,
+      #4A1415 0%,
+      #912927 60%,
+      #D84846 100%
     );
-    transform: skewX(45deg) translate(0);
-    transition: 0.5s;
-    filter: blur(0px);
+    color: #FFFFFF;
+    box-shadow: 0px 0px 40px rgba(145, 41, 39, 0.7);
+    transform: translateY(-2px);
   }
 
-  .container .btn:hover a::before {
-    transform: skewX(45deg) translate(200px);
-  }
-
-  .container .btn::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translatex(-50%);
-    bottom: -5px;
-    width: 30px;
-    height: 10px;
-    background: #f00;
-    border-radius: 10px;
-    transition: 0.5s;
-    transition-delay: 0.5;
-  }
-
-  .container .btn:hover::before /*lightup button*/ {
-    bottom: 0;
-    height: 50%;
-    width: 80%;
-    border-radius: 30px;
-  }
-
-  .container .btn::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translatex(-50%);
-    top: -5px;
-    width: 30px;
-    height: 10px;
-    background: #f00;
-    border-radius: 10px;
-    transition: 0.5s;
-    transition-delay: 0.5;
-  }
-
-  .container .btn:hover::after /*lightup button*/ {
-    top: 0;
-    height: 50%;
-    width: 80%;
-    border-radius: 30px;
-  }
-
-  .container .btn:nth-child(1)::before,
-  .container .btn:nth-child(1)::after {
-    background: #f59e0b;
-    box-shadow:
-      0 0 5px #fbbf24,
-      0 0 15px #fbbf24,
-      0 0 10px #fbbf24,
-      0 0 30px #fbbf24;
+  .btn:active {
+    transform: scale(0.95);
   }
 `;
 

@@ -2,11 +2,6 @@ import Image from "next/image";
 import logo from "../../public/assets/logo.webp";
 
 import {
-  BadgeCheckIcon,
-  BellIcon,
-  CreditCardIcon,
-  House,
-  LogOutIcon,
   Menu,
   PhoneForwarded,
 } from "lucide-react";
@@ -15,33 +10,33 @@ import {
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuSeparator,
+
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import { Button } from "./ui/button";
+
 
 const Navbar = () => {
   const navlinks = (
     <>
       <ul className="flex gap-4">
-        <li className="cursor-pointer hover:text-[#FBBF42]">
+        <li className="cursor-pointer hover:text-red-1 text-lg">
           <a href="#hero">Home</a>
         </li>
-        <li className="cursor-pointer hover:text-[#FBBF42]">
+        <li className="cursor-pointer hover:text-red-1 text-lg">
           <a href="#projects">Projects</a>
         </li>
-        <li className="cursor-pointer hover:text-[#FBBF42]">
+        <li className="cursor-pointer hover:text-red-1 text-lg">
           <a href="#about">About</a>
         </li>
-        <li className="cursor-pointer hover:text-[#FBBF42]">
+        <li className="cursor-pointer hover:text-red-1 text-lg">
           <a href="#Blog">Blog</a>
         </li>
-        <li className="cursor-pointer hover:text-[#FBBF42]">
+        <li className="cursor-pointer hover:text-red-1 text-lg">
           <a href="#contact">Contact</a>
         </li>
-        <li className="cursor-pointer hover:text-[#FBBF42]  md:ml-5 lg::ml-10">
+        <li className="cursor-pointer hover:text-red-1  text-lg md:ml-5 lg::ml-10">
           <a
-            className="flex items-center text-yellow-1"
+            className="flex items-center text-red-1"
             href="tel:+8801963225525"
           >
             <PhoneForwarded /> <span className="ml-2">+880 1963225525</span>
@@ -51,7 +46,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <nav className="bg-[#050b16] text-white  p-4">
+    <nav className="bg-black-1 text-white  p-4">
       <div className="flex justify-between items-center lg:block max-w-8xl mx-auto">
         <div className="flex items-center justify-between">
           {/* Logo */}

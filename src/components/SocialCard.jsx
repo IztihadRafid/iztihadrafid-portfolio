@@ -5,7 +5,7 @@ import styled from "styled-components";
 const SocialCard = () => {
   return (
     <StyledWrapper>
-      <div className="card">
+      <div className=" grid lg:grid-cols-4 gap-4 grid-cols-2 lg:p-10 pb-6">
         <a
           href="https://github.com/IztihadRafid"
           target="_blank"
