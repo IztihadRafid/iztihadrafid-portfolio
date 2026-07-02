@@ -1,6 +1,12 @@
+"use client";
+import Image from "next/image";
 import EduCard from "./EduCard";
 import SplitText from "./SplitText";
+import me from "../../public/assets/me.webp";
+import EduCard2 from "./EduCard2";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 
+import { motion } from "motion/react";
 const About = () => {
   return (
     <div className="bg-black-1 md:mt-20 lg:mt-40">
@@ -23,25 +29,118 @@ const About = () => {
         <div className=" md:mt-1 lg:mt-3 h-1 w-44 lg:w-44 rounded-full bg-red-1"></div>
       </div>
 
-     
-      <section className="flex flex-col md:flex-row items-start gap-10 p-10 lg:p-6 max-w-8xl mx-auto">
-         <section className="md:w-1/2 h-full bg-black-2 border  border-gray-700 rounded-xl p-6">
-        <h3 className="text-4xl text-white mb-6">👋 Assalamu Alaikum</h3><br></br>
-        <p className="text-xl leading-8 text-gray-1">
-          I`m Md. Iztihad Rafid, a passionate Web Developer focused on
-           new modern, responsive, user-friendly interactive web applications.<br></br><br></br> I`ve
-          experience working with modern tools like MERN stack, Nextjs, TypeScript. I love to tur new ideas into real-world
-          applications by maintaining clean, resuable, scalable, and efficient code. <br></br><br></br> My
-          goal is to improve my development new skills in tech fields and keep contribution
-          to impactful projects that solve real-world problems.
-        </p>
-      </section>
-      <section className="md:w-1/2">
-         <h3 className="text-white text-4xl text-center mb-6">Education</h3>
-        <EduCard heading={"Bachelor of Science (BSc)"} subHeading={"Computer Science & Engineering (CSE)"} institute={"North South University, Dhaka"} date={"2020 - 2025"}></EduCard>
-        <EduCard  heading={"Higher Secondary Certificate (HSC)"} subHeading={"Science"} institute={"Uttara High School & College"} date={"2018 - 2019"}></EduCard>
-        <EduCard  heading={"Secondary School Certificate (SSC)"} subHeading={"Science"} institute={"Uttara High School & College"} date={"2016 - 2017"}></EduCard>
-      </section>
+      <section className=" gap-10 p-10 lg:p-6 max-w-8xl mx-auto">
+        <section className="h-full bg-black-2 border flex lg:flex-row flex-col-reverse justify-between border-gray-700 rounded-xl p-6">
+          <div>
+            <h3 className="text-4xl text-white  text-center md:text-left pt-10 md:py-7">
+              👋 Assalamu Alaikum
+            </h3>
+            <br></br>
+            <p className="text-xl leading-8 text-gray-1">
+              I`m Md. Iztihad Rafid, a passionate Web Developer focused on new
+              modern, responsive, user-friendly interactive web applications.
+              <br></br>
+              <br></br> I`ve experience working with modern tools like MERN
+              stack, Nextjs, TypeScript. I love to tur new ideas into real-world
+              applications by maintaining clean, resuable, scalable, and
+              efficient code. <br></br>
+              <br></br> My goal is to improve my development new skills in tech
+              fields and keep contribution to impactful projects that solve
+              real-world problems.
+            </p>
+          </div>
+          <div>
+            <Image
+              src={me}
+              alt="my pic"
+              width={300}
+              height={300}
+              className="rounded-2xl"
+            ></Image>
+          </div>
+        </section>
+
+        {/* Education and Experience sections */}
+        <Tabs
+          defaultValue="education"
+          className="w-full max-w-8xl mx-auto mt-16"
+        >
+          <TabsList className="grid w-full max-w-xl grid-cols-2 mx-auto mb-10 rounded-2xl  p-3 bg-black-1">
+            <TabsTrigger
+              value="education"
+              className="text-lg rounded-lg text-red-1 transition-all duration-300  hover:bg-red-1/20 hover:text-white data-[state=active]:bg-red-1 data-[state=active]:text-white p-3 "
+            >
+              Education
+            </TabsTrigger>
+
+            <TabsTrigger
+              value="experience"
+              className="text-lg rounded-lg text-red-1 transition-all duration-300 hover:bg-red-1/20 hover:text-white data-[state=active]:bg-red-1 data-[state=active]:text-white p-3"
+            >
+              Work Experience
+            </TabsTrigger>
+          </TabsList>
+
+          {/* Education */}
+          <TabsContent value="education" className="mt-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.5,
+                ease: "easeOut",
+              }}
+              className="space-y-6"
+            >
+              <EduCard
+                heading="Bachelor of Science (BSc)"
+                subHeading="Computer Science & Engineering (CSE)"
+                institute="North South University, Dhaka"
+                date="2020 - 2025"
+              />
+
+              <EduCard
+                heading="Higher Secondary Certificate (HSC)"
+                subHeading="Science"
+                institute="Uttara High School & College"
+                date="2018 - 2019"
+              />
+
+              <EduCard
+                heading="Secondary School Certificate (SSC)"
+                subHeading="Science"
+                institute="Uttara High School & College"
+                date="2016 - 2017"
+              />
+            </motion.div>
+          </TabsContent>
+
+          {/* Experience */}
+          <TabsContent value="experience" className="mt-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.5,
+                ease: "easeOut",
+              }}
+            >
+              <EduCard2
+                heading="Intern Frontend Developer"
+                subHeading="Vista Systech Ltd."
+                institute="North South University, Dhaka"
+                date="1st Oct, 2025 - 31st Mar, 2026"
+                responsibilities={[
+                  "Developed and optimized CMS frontend site using React.js, React-Bootstrap, React Formik and integrated backend APIs.",
+                  "Developed company websites using Next.js, TypeScript, Shadcn UI, WordPress and Elementor Pro.",
+                  "Integrated third-party services and RESTful APIs.",
+                  "Maintained responsive, user-friendly applications with cross-browser compatibility.",
+                  "Handled QA tasks using Jira, debugging, and testing checklists.",
+                ]}
+              />
+            </motion.div>
+          </TabsContent>
+        </Tabs>
       </section>
     </div>
   );
