@@ -15,7 +15,7 @@ const EduCard2 = ({
   responsibilities,
 }: EduCardProps) => {
   return (
-    <div className="w-full rounded-2xl border border-black-4 bg-[#151515] p-6 md:p-8 shadow-lg transition-all duration-300 hover:border-red-1 hover:shadow-red-1/20">
+    <div className="w-full rounded-2xl border border-black-4 bg-[#151515] p-6 md:p-8 shadow-lg transition-all duration-300 hover:border-red-1/2 hover:shadow-red-1/20">
       <h3 className="text-2xl md:text-3xl font-bold text-red-1">
         {heading}
       </h3>

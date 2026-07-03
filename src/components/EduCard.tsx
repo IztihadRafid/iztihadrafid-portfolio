@@ -21,9 +21,9 @@ const EduCard = ({ heading, institute, date, subHeading }: EduCardProps) => {
                     <h4 className="text-red-1 md:text-2xl mb-2">{heading}</h4>
                   </div>
                   <div className="">
-                    <p className="md:text-xl  mb-1">{subHeading}</p>
-                    <p className="md:text-[15px]  mb-1">{institute}</p>
-                    <p className="md:text-[12px]  mb-1">{date}</p>
+                    <p className="text-xl mb-1">{subHeading}</p>
+                    <p className="text-[16px]  mb-1">{institute}</p>
+                    <p className="text-[16px]  mb-1">{date}</p>
                   </div>
                 </div>
               </div>

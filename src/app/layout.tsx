@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={cn("font-sans", geist.variable)}>
-      <body className={`${raleway.variable}  antialiased bg-[#111827]`}>
+      <body className={`${raleway.variable}  antialiased bg-[#0e0e0e]`}>
         <Navbar></Navbar>
         <main className=" bg-black-1">
           {children}

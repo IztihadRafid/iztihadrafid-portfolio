@@ -100,7 +100,7 @@ const ExperiencedTools = () => {
         />
       </section>
        <div className="flex justify-center lg:justify-end max-w-8xl mx-auto">
-        <div className="flex items-center gap-4 p-6 w-fit border border-black-4 lg:rounded-full lg:shadow-md lg:shadow-red-500">
+        <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-[repeat(13,minmax(0,1fr))] items-center gap-4 p-6  border border-black-4 lg:rounded-full lg:shadow-md lg:shadow-red-500">
         <CardSkill img={github} alt="github" title="Github"></CardSkill>
         <CardSkill img={vscode} alt="CSS" title="VScode"></CardSkill>
         <CardSkill img={jira} alt="Jira" title="Jira"></CardSkill>

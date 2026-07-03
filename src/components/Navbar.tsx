@@ -13,6 +13,7 @@ import {
 
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
+import Link from "next/link";
 
 
 const Navbar = () => {
@@ -20,7 +21,7 @@ const Navbar = () => {
     <>
       <ul className="flex gap-4">
         <li className="cursor-pointer hover:text-red-1 text-lg">
-          <a href="#hero">Home</a>
+          <Link href="/">Home</Link>
         </li>
         <li className="cursor-pointer hover:text-red-1 text-lg">
           <a href="#projects">Projects</a>

@@ -67,7 +67,7 @@
 }
 
 :root {
-  --red-1: #ff3e3b;
+  --red-1: #FF5757;
   --black-1: #0e0e0e;
   --black-2: #221f1f;
   --black-3: #151b2a;
@@ -116,7 +116,7 @@
 }
 
 .dark {
-  --background: #111827;
+  --background: #0e0e0e;
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
