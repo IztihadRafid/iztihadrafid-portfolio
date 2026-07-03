@@ -6,13 +6,13 @@ import eventdev from "../../public/assets/projectIMg/eventdev.png";
 import projectLiveFruitBurst from "../../public/assets/projectIMg/fruitBurst.png";
 import { StaticImageData } from "next/image";
 export interface Project {
-  id?: string;
-  image?: StaticImageData | string;
-  title?: string | undefined;
-  description?: string | undefined;
-  techs?: string[] | (string | undefined)[];
-  github?: string | undefined;
-  live?: string | undefined;
+  id: string;
+  image: StaticImageData ;
+  title: string;
+  description: string ;
+  techs: string[] ;
+  github: string ;
+  live: string ;
 
 }
 export const projects :Project[]= [

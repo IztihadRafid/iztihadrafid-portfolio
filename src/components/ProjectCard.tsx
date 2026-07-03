@@ -4,8 +4,6 @@ import { ArrowRight, Link } from "lucide-react";
 import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
 
-
-
 const ProjectCard = ({
   id,
   image,
@@ -22,7 +20,7 @@ const ProjectCard = ({
       <div className="relative h-[275px] w-full overflow-hidden rounded-t-2xl">
         <Image
           src={image}
-          alt={title}
+          alt={"image"}
           fill
           className="object-cover transition  duration-500 group-hover:scale-105"
         />

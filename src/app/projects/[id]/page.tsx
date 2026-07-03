@@ -1,7 +1,8 @@
 import SplitText from "@/components/SplitText";
 import { projects } from "@/data/Project";
-import { ExternalLink, FileText } from "lucide-react";
+import { ExternalLink, } from "lucide-react";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import { FaGithub } from "react-icons/fa";
 
 export default async function ProjectDetails({
@@ -11,8 +12,11 @@ export default async function ProjectDetails({
 }) {
   const { id } = await params;
   const project = projects.find((p) => p.id === id);
-
+if(!project) {
+   notFound()
+  }
   const { title, image, description, techs, github, live } = project;
+  
   return (
     <div className="bg-black-1 md:mt-8 lg:mt-8">
       <div className="flex flex-col items-center pt-10 md:mb-20 lg:mb-22 mb-0 max-w-8xl mx-auto">
