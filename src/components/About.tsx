@@ -83,14 +83,14 @@ const About = () => {
           <TabsList className="grid w-full max-w-xl grid-cols-2 mx-auto mb-10 rounded-2xl  p-3 bg-black-1">
             <TabsTrigger
               value="education"
-              className="text-lg rounded-lg text-red-1 transition-all duration-300  hover:bg-red-1/20 hover:text-white data-[state=active]:bg-red-1 data-[state=active]:text-white p-3 "
+              className="md:text-lg text-md rounded-lg text-red-1 transition-all duration-300  hover:bg-red-1/20 hover:text-white data-[state=active]:bg-red-1 data-[state=active]:text-white p-3 "
             >
               Education
             </TabsTrigger>
 
             <TabsTrigger
               value="experience"
-              className="text-lg rounded-lg text-red-1 transition-all duration-300 hover:bg-red-1/20 hover:text-white data-[state=active]:bg-red-1 data-[state=active]:text-white p-3"
+              className="md:text-lg text-md rounded-lg text-red-1 transition-all duration-300 hover:bg-red-1/20 hover:text-white data-[state=active]:bg-red-1 data-[state=active]:text-white p-3"
             >
               Work Experience
             </TabsTrigger>

@@ -63,7 +63,7 @@ const Navbar = () => {
         <section className="">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Menu className="rounded-full bg-black text-yellow-1 block lg:hidden" />
+              <Menu className="rounded-full bg-black text-red-1 block lg:hidden" />
             </DropdownMenuTrigger>
             <DropdownMenuContent
               align="end"
@@ -100,7 +100,7 @@ const Navbar = () => {
               <DropdownMenuItem>
                 <li className="cursor-pointer hover:text-[#FBBF42]  list-none ">
                   <a
-                    className="flex items-center text-yellow-1"
+                    className="flex items-center text-red-1 hover:text-[#d14b56]"
                     href="tel:+8801963225525"
                   >
                     <PhoneForwarded />{" "}

@@ -3,8 +3,8 @@ import SocialCards from "./SocialCards";
 
 const Footer = () => {
   return (
-    <div className="bg-[#151515]/40  backdrop-blur-md  border border-gray-3 hovr:border-red-1 p-10 max-w-8xl mx-auto text-white rounded-2xl my-6 md:my-20 lg:mt-30 mb-10">
-      <h3 className="text-5xl font-semibold text-center p-4">
+    <div className="bg-[#151515]/40  backdrop-blur-md  border border-gray-3 hovr:border-red-1 p-10 w-[80%] md:max-w-8xl mx-auto text-white rounded-2xl my-6 md:my-20 lg:mt-30 mb-10">
+      <h3 className="lg:text-5xl md:text-4xl text-3xl font-semibold text-center p-4">
         Let`s <span className="text-red-1">Start</span>
       </h3>
       <p className="text-gray-400 text-center pb-2 mb-6">
@@ -19,7 +19,7 @@ const Footer = () => {
           />
           <div>
             <p>Email</p>
-            <p>iztihadrafid@gmail.com</p>
+            <p className="text-gray-400 md:text-lg text-sm">iztihadrafid@gmail.com</p>
           </div>
         </div>
         <div className="bg-[#191919] border border-gray-4 w-full rounded-2xl p-4 hover:bg-[#151515] lg:p-6 flex gap-4 justify-start items-center transition-colors duration-300">
@@ -30,7 +30,7 @@ const Footer = () => {
           />
           <div>
             <p>Phone</p>
-            <p>+880 1963225525</p>
+            <p className="text-gray-400 md:text-md text-sm">+880 1963225525</p>
           </div>
         </div>
         <div className="bg-[#191919] border border-gray-4 w-full rounded-2xl p-4 hover:bg-[#151515] lg:p-6 flex gap-4 justify-start items-center transition-colors duration-300">
@@ -41,7 +41,7 @@ const Footer = () => {
           />
           <div>
             <p>Location</p>
-            <p>Uttara, Dhaka</p>
+            <p className="text-gray-400 md:text-md text-sm">Uttara, Dhaka</p>
           </div>
         </div>
       </div>

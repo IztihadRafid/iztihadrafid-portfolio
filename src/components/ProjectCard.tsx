@@ -15,7 +15,7 @@ const ProjectCard = ({
 
 }:Project ) => {
   return (
-    <div className="h-[510px]  rounded-2xl border border-black-4 backdrop-blur-md bg-[#151515] transition-all duration-400 hover:-translate-y-2 hover:border-red-1 hover:shadow-xl hover:shadow-red-1/20">
+    <div className="h-full rounded-2xl border border-black-4 backdrop-blur-md bg-[#151515] transition-all duration-400 hover:-translate-y-2 hover:border-red-1 hover:shadow-xl hover:shadow-red-1/20 w-[90%] lg:max-w-8xl mx-auto">
       {/* Image */}
       <div className="relative h-[275px] w-full overflow-hidden rounded-t-2xl">
         <Image
@@ -37,23 +37,23 @@ const ProjectCard = ({
             </span>
           ))}
         </div>
-        <div className="mt-6 flex justify-around items-center  gap-3">
+        <div className="mt-6 flex lg:flex-row flex-col justify-around items-center  gap-3">
           <a
             href={github}
             target="_blank"
-            className="flex items-center gap-2 rounded-lg border border-black-4 px-4 py-2 text-white transition hover:border-red-[#FF5757] hover:bg-red-1"
+            className="flex items-center w-full  justify-center gap-2 rounded-lg border border-black-4 px-4 py-2 text-white transition hover:border-red-[#FF5757] hover:bg-red-1"
           >  
             <FaGithub size={18} /> Github 
           </a>
           <a
             href={live}
             target="_blank"
-            className="flex items-center gap-2 rounded-lg border border-black-4 px-4 py-2 text-white transition hover:border-red-[#FF5757] hover:bg-red-1"
+            className="flex items-center w-full  justify-center gap-2 rounded-lg border border-black-4 px-4 py-2 text-white transition hover:border-red-[#FF5757] hover:bg-red-1"
           > <Link size={18} />Live
           </a>
           <a
              href={`/projects/${id}`}
-            className="flex items-center gap-2 rounded-lg border border-black-4 px-4 py-2 text-white transition hover:border-red-[#FF5757] hover:bg-red-1"
+            className="flex items-center w-full  justify-center gap-2 rounded-lg border border-black-4 px-4 py-2 text-white transition hover:border-red-[#FF5757] hover:bg-red-1"
           >
            <ArrowRight size={18} />Details
           </a>

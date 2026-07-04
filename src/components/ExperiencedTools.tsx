@@ -23,7 +23,7 @@ import SplitText from "./SplitText";
 import TrueFocus from "./TrueFocus";
 
 const ExperiencedTools = () => {
-  const andTxt = "&";
+
   return (
     <div className="lg:pb-8 pb-4 mx-auto max-w-8xl">
       <div className="flex flex-col items-center pt-10 md:mb-8 lg:mb-10 mb-0">
@@ -76,7 +76,7 @@ const ExperiencedTools = () => {
           and user-friendly websites and applications.
         </p>
       </div>
-      <section className="text-white flex justify-center mt-15 lg:justify-start items-center max-w-8xl mx-auto mb-10">
+      <section className="text-white flex justify-center mt-15 lg:justify-start items-center w-[90%] lg:max-w-8xl mx-auto mb-10">
         <TrueFocus
           sentence="Frontend Technologies"
           manualMode={false}
@@ -87,7 +87,7 @@ const ExperiencedTools = () => {
           className=" text-xl md:text-3xl lg:text-4xl "
         />
       </section>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-10 gap-4 text-white w-[95%] lg:w-full mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-10 gap-4 text-white w-[90%] lg:max-w-8xl mx-auto  ">
         <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-red-1  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:lg:w-[120px]">
           <Image
             src={htmlpic}
@@ -200,7 +200,7 @@ const ExperiencedTools = () => {
         </div>
       </div>
 
-      <div className="flex lg:flex-row flex-col justify-between lg:items-start lg:max-w-8xl w-[95%] mx-auto">
+      <div className="flex lg:flex-row flex-col justify-between lg:items-start w-[90%] lg:max-w-8xl mx-auto">
         {/* left content */}
         <div>
           <section className="text-white flex justify-center mt-15 lg:justify-start items-center max-w-8xl mx-auto mb-10">
