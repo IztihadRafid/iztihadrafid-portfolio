@@ -29,18 +29,18 @@ const Navbar = () => {
         <li className="cursor-pointer hover:text-red-1 text-lg">
           <a href="#about">About</a>
         </li>
-        <li className="cursor-pointer hover:text-red-1 text-lg">
+        {/* <li className="cursor-pointer hover:text-red-1 text-lg">
           <a href="#Blog">Blog</a>
-        </li>
+        </li> */}
         <li className="cursor-pointer hover:text-red-1 text-lg">
           <a href="#contact">Contact</a>
         </li>
         <li className="cursor-pointer hover:text-red-1  text-lg md:ml-5 lg::ml-10">
           <a
-            className="flex items-center text-red-1"
+            className="flex items-center text-red-1 hover:text-[#d14b56]"
             href="tel:+8801963225525"
           >
-            <PhoneForwarded /> <span className="ml-2">+880 1963225525</span>
+            <PhoneForwarded /> <span className="ml-2 ">+880 1963225525</span>
           </a>
         </li>
       </ul>

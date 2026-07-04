@@ -18,8 +18,8 @@ if(!project) {
   const { title, image, description, techs, github, live } = project;
   
   return (
-    <div className="bg-black-1 md:mt-8 lg:mt-8">
-      <div className="flex flex-col items-center pt-10 md:mb-20 lg:mb-22 mb-0 max-w-8xl mx-auto">
+    <div className="bg-black-1 md:mt-8 lg:mt-8 mb-8">
+      <div className="flex flex-col items-center pt-10 md:mb-20 lg:mb-16 mb-0 max-w-8xl mx-auto">
         <h1 className="lg:text-6xl md:text-4xl text-4xl ">
           <SplitText
             text="Project Details"

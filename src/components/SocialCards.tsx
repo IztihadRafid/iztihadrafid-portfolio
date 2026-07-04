@@ -24,7 +24,7 @@ const SocialCards = () => {
             <a href="https://www.linkedin.com/in/md-iztihad-rafid-2334992b3/" target="_blank">
              <FaLinkedinIn className="svg" />
             </a>
-            <div className="text">Twitter</div>
+            <div className="text">Linkedin</div>
           </li>
           <li className="iso-pro">
             <span />
@@ -33,7 +33,7 @@ const SocialCards = () => {
             <a href="https://github.com/IztihadRafid" target="_blank">
               <FiGithub className="svg" />
             </a>
-            <div className="text">Instagram</div>
+            <div className="text">Github</div>
           </li>
         </ul>
       </div>

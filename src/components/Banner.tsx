@@ -56,13 +56,13 @@ const Banner = () => {
         <section className="flex items-center justify-center lg:py-10 ">
           <div className="">
             {/* Image  */}
-            <div className="relative rounded-full p-1 bg-linear-to-r from-[#ff5757] to-[#ff5757] ">
+            <div className="relative rounded-full p-1  ">
               <Image
                 src={myImg}
                 alt="Md. Iztihad Rafid"
                 width={400}
                 height={400}
-                className="rounded-full border-4 border-gray-2 transition-transform duration-500 hover:scale-105"      
+                className="rounded-full border border-[#ff5757] bg-linear-to-r from-[#ff5757] to-[#ff5757] transition-transform duration-500 hover:scale-105"      
               /> 
             </div>
           

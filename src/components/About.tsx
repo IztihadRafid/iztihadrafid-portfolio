@@ -8,13 +8,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 
 import { motion } from "motion/react";
 const About = () => {
+
   return (
-    <div className=" md:mt-20 lg:mt-40">
-      <div className="flex flex-col items-center pt-10 md:mb-20 lg:mb-22 mb-0 max-w-8xl mx-auto">
-        <h1 className="lg:text-6xl md:text-4xl text-4xl ">
+    <div className=" mt-10 md:mt-14 lg:mt-16" id="about">
+      <div className="flex flex-col items-center pt-10 md:mb-8 lg:mb-10 mb-0">
+        <h1 className="lg:text-6xl md:text-4xl text-4xl flex items-center justify-center gap-2">
           <SplitText
-            text="About Me"
-            className=" text font-semibold  text-gray-1"
+            text="About"
+            className="text font-semibold text-gray-1"
             delay={50}
             duration={1.0}
             ease="power3.out"
@@ -22,11 +23,25 @@ const About = () => {
             from={{ opacity: 0, y: 40 }}
             to={{ opacity: 1, y: 0 }}
             threshold={0.1}
-            rootMargin="-100px"
+            rootMargin="-120px"
+            textAlign="center"
+          />
+          
+          <SplitText
+            text="Me"
+            className="text font-semibold text-red-1 lg:ml-3"
+            delay={50}
+            duration={1.0}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="-120px"
             textAlign="center"
           />
         </h1>
-        <div className=" md:mt-1 lg:mt-3 h-1 w-44 lg:w-44 rounded-full bg-red-1"></div>
+        <div className=" md:mt-1 lg:mt-3 h-1 w-44 lg:w-64 rounded-full bg-red-1"></div>
       </div>
 
       <section className=" gap-10 p-10 lg:p-6 max-w-8xl mx-auto">
@@ -36,7 +51,7 @@ const About = () => {
               👋 Assalamu Alaikum
             </h3>
             <br></br>
-            <p className="text-xl leading-8 text-gray-1">
+            <p className="md:text-xl text-lg  leading-8 text-gray-1">
               I`m Md. Iztihad Rafid, a passionate Web Developer focused on new
               modern, responsive, user-friendly interactive web applications.
               <br></br>

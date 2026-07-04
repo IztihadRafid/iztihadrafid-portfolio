@@ -7,14 +7,15 @@ interface ButtonHireProps {
   target?: string;
 }
 
-const ButtonHire = ({ text, href ,target }: ButtonHireProps): JSX.Element => {
+const ButtonHire = ({ text, href, target }: ButtonHireProps): JSX.Element => {
   return (
-     <StyledWrapper>
-       <div className="btn ">
-          <a target={target} href={href} >{text}</a>
-        </div>
+    <StyledWrapper>
+      <div className="btn ">
+        <a target={target} href={href}>
+          {text}
+        </a>
+      </div>
     </StyledWrapper>
-    
   );
 };
 const StyledWrapper = styled.div`
@@ -27,33 +28,23 @@ const StyledWrapper = styled.div`
     cursor: pointer;
     text-transform: uppercase;
     background-color: rgb(14, 14, 26);
-    color: #E7E7E7;
+    color: #e7e7e7;
     font-weight: 700;
 
     box-shadow: 0px 0px 30px #912927;
 
     -webkit-box-reflect: below 10px
-      linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0),
-        rgba(0, 0, 0, 0.4)
-      );
-
+      linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
     transition:
-      background 0.6s ease,
-      color 0.6s ease,
-      box-shadow 0.6s ease,
-      transform 0.6s ease;
+      background 1s ease,
+      color 1s ease,
+      box-shadow 1s ease,
+      transform 1s ease;
   }
 
   .btn:hover {
-    background: linear-gradient(
-      135deg,
-      #4A1415 0%,
-      #912927 60%,
-      #D84846 100%
-    );
-    color: #FFFFFF;
+    background: linear-gradient(135deg, #4a1415 0%, #912927 60%, #d84846 100%);
+    color: #ffffff;
     box-shadow: 0px 0px 40px rgba(145, 41, 39, 0.7);
     transform: translateY(-2px);
   }
