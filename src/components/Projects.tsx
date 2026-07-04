@@ -5,7 +5,7 @@ import { projects } from "@/data/Project";
 const Projects = () => {
  
   return (
-    <div className="bg-black-1 md:mt-20 lg:mt-40  lg:max-w-8xl mx-auto">
+    <div className="bg-black-1/40 backdrop-blur-md  md:mt-20 lg:mt-40  lg:max-w-8xl mx-auto">
       <div className="flex flex-col items-center pt-10 md:mb-20 lg:mb-22 mb-0 ">
         <h1 className="lg:text-6xl md:text-4xl text-4xl ">
           <SplitText
@@ -30,7 +30,7 @@ const Projects = () => {
       </div>
 
       {/* projects */}
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto max-w-8xl">
         {
             projects?.map((project)=>(
                 <ProjectCard key={project?.title} id={project?.id} title={project?.title} description={project?.description} techs={project?.techs} image={project?.image} github={project?.github} live={project?.live}></ProjectCard>

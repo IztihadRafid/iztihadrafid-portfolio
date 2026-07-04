@@ -47,14 +47,14 @@ const Navbar = () => {
     </>
   );
   return (
-    <nav className="bg-black-1 text-white  p-4">
+    <nav className=" text-white  p-4">
       <div className="flex justify-between items-center lg:block max-w-8xl mx-auto">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="logo flex items-center ">
-            <Image src={logo} width={45} alt="Logo"></Image>
+         <Link href="/">  <div className="logo flex items-center ">
+           <Image src={logo} width={45} alt="Logo"></Image>
             <p className="text-white text-3xl mb-1">Rafid</p>
-          </div>
+          </div></Link>
           {/* Nav Links for large device*/}
           <div className="nav-links hidden lg:block">{navlinks}</div>
         </div>

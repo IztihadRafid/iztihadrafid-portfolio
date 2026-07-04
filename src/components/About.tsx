@@ -9,7 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { motion } from "motion/react";
 const About = () => {
   return (
-    <div className="bg-black-1 md:mt-20 lg:mt-40">
+    <div className=" md:mt-20 lg:mt-40">
       <div className="flex flex-col items-center pt-10 md:mb-20 lg:mb-22 mb-0 max-w-8xl mx-auto">
         <h1 className="lg:text-6xl md:text-4xl text-4xl ">
           <SplitText
@@ -30,7 +30,7 @@ const About = () => {
       </div>
 
       <section className=" gap-10 p-10 lg:p-6 max-w-8xl mx-auto">
-        <section className="h-full bg-black-2 border flex lg:flex-row flex-col-reverse justify-between border-gray-700 rounded-xl p-6">
+        <section className="h-full bg-black-2/40 backdrop-blur-md border flex lg:flex-row flex-col-reverse justify-between border-gray-700/50 rounded-xl p-6">
           <div>
             <h3 className="text-4xl text-white  text-center md:text-left pt-10 md:py-7">
               👋 Assalamu Alaikum
@@ -62,7 +62,7 @@ const About = () => {
 
         {/* Education and Experience sections */}
         <Tabs
-          defaultValue="education"
+          defaultValue="experience"
           className="w-full max-w-8xl mx-auto mt-16"
         >
           <TabsList className="grid w-full max-w-xl grid-cols-2 mx-auto mb-10 rounded-2xl  p-3 bg-black-1">
@@ -82,7 +82,7 @@ const About = () => {
           </TabsList>
 
           {/* Education */}
-          <TabsContent value="education" className="mt-6">
+          <TabsContent value="education" className="mt-6 backdrop-blur-md">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}

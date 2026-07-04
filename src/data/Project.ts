@@ -4,6 +4,7 @@ import skillbridgebd from "../../public/assets/projectIMg/skillbridgebd.png";
 import projectLiveBistroBossRes from "../../public/assets/projectIMg/bistroBoss.png";
 import eventdev from "../../public/assets/projectIMg/eventdev.png";
 import projectLiveFruitBurst from "../../public/assets/projectIMg/fruitBurst.png";
+import vista from "../../public/assets/projectIMg/vista.webp";
 import { StaticImageData } from "next/image";
 export interface Project {
   id: string;
@@ -94,5 +95,14 @@ export const projects :Project[]= [
         github: "https://github.com/IztihadRafid/Fruit-Burst",
         live: "https://iztihadrafid.github.io/Fruit-Burst",
         techs: ["HTML", "CSS", "Tailwind"],
+    },
+     {
+        id: "7",
+        title: "Vista Systech Ltd.",
+        description: "Vista SysTech delivers innovative technology solutions for client success. Discover our commitment to excellence and transform your business today.",
+        image: vista,
+        github: "/",
+        live: "https://vistasystech.com/",
+        techs: ["Wordpress", "Elementor Pro", "Php","Crafto Theme","Cloudflare","RankMath SEO"],
     },
 ];

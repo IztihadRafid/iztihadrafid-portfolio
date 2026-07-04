@@ -24,7 +24,7 @@ import TrueFocus from "./TrueFocus";
 
 const ExperiencedTools = () => {
   return (
-    <div className="bg-black-1 lg:pb-10 pb-4 ">
+    <div className="lg:pb-10 pb-4 ">
       <div className="flex flex-col items-center pt-10 md:mb-20 lg:mb-22 mb-0">
         <h1 className="lg:text-6xl md:text-4xl text-4xl text-yellow-1">
           <SplitText

@@ -15,7 +15,7 @@ const ProjectCard = ({
 
 }:Project ) => {
   return (
-    <div className="h-[500px] w-96 rounded-2xl border border-black-4 bg-[#151515] transition-all duration-400 hover:-translate-y-2 hover:border-red-1 hover:shadow-xl hover:shadow-red-1/20">
+    <div className="h-[510px]  rounded-2xl border border-black-4 backdrop-blur-md bg-[#151515] transition-all duration-400 hover:-translate-y-2 hover:border-red-1 hover:shadow-xl hover:shadow-red-1/20">
       {/* Image */}
       <div className="relative h-[275px] w-full overflow-hidden rounded-t-2xl">
         <Image
@@ -27,9 +27,7 @@ const ProjectCard = ({
       </div>  
       <div className="p-5">
         <h3 className="text-2xl font-bold text-[#FF5757]">{title}</h3>
-        {/* <p className="mt-3 text-gray-2 leading-7">
-          {description}
-        </p> */}
+      
         <div className="mt-5 flex flex-wrap gap-2">
           {techs?.map((tech) => (
             <span

@@ -1,6 +1,8 @@
 import About from "@/components/About";
 import Banner from "@/components/Banner";
+import Contact from "@/components/Contact";
 import ExperiencedTools from "@/components/ExperiencedTools";
+import Footer from "@/components/Footer";
 import Projects from "@/components/Projects";
 
 const HomePage = () => {
@@ -10,6 +12,8 @@ const HomePage = () => {
     <ExperiencedTools></ExperiencedTools>
     <About></About>
     <Projects></Projects>
+    <Contact></Contact>
+    <Footer></Footer>
     </div>
   )
 }
