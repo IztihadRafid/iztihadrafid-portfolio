@@ -4,7 +4,6 @@ import ButtonHire from "./ButtonHire";
 import SplitText from "./SplitText";
 import TextType from "./TextType";
 import myImg from "../../public/assets/mypic.webp";
-import ProfileCard from "./ProfileCard";
 import SocialCard from "./SocialCard";
 const Banner = () => {
   return (
@@ -62,15 +61,14 @@ const Banner = () => {
                 alt="Md. Iztihad Rafid"
                 width={400}
                 height={400}
-                className="rounded-full border border-[#ff5757] bg-linear-to-r from-[#ff5757] to-[#ff5757] transition-transform duration-500 hover:scale-105"      
-              /> 
+                className="rounded-full border border-[#ff5757] bg-linear-to-r from-[#ff5757] to-[#ff5757] transition-transform duration-500 hover:scale-105"
+              />
             </div>
-          
           </div>
         </section>
       </div>
       <section className="flex justify-center items-center">
-              <SocialCard></SocialCard>
+        <SocialCard></SocialCard>
       </section>
     </div>
   );

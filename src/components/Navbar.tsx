@@ -71,34 +71,34 @@ const Navbar = () => {
             >
               <DropdownMenuGroup>
                 <DropdownMenuItem>
-                  <li className="cursor-pointer hover:text-[#FBBF42] ">
+                  <li className="cursor-pointer hover:text-[#FBBF42]  list-none">
                     <a href="#hero">Home</a>
                   </li>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <li className="cursor-pointer hover:text-[#FBBF42]">
+                  <li className="cursor-pointer hover:text-[#FBBF42]  list-none">
                     <a href="#projects">Projects</a>
                   </li>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <li className="cursor-pointer hover:text-[#FBBF42]">
+                  <li className="cursor-pointer hover:text-[#FBBF42]  list-none">
                     <a href="#about">About</a>
                   </li>
                 </DropdownMenuItem>
               </DropdownMenuGroup>
 
               <DropdownMenuItem>
-                <li className="cursor-pointer hover:text-[#FBBF42]">
+                <li className="cursor-pointer hover:text-[#FBBF42]  list-none">
                   <a href="#Blog">Blog</a>
                 </li>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <li className="cursor-pointer hover:text-[#FBBF42]">
+                <li className="cursor-pointer hover:text-[#FBBF42]  list-none">
                   <a href="#contact">Contact</a>
                 </li>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <li className="cursor-pointer hover:text-[#FBBF42]  ">
+                <li className="cursor-pointer hover:text-[#FBBF42]  list-none ">
                   <a
                     className="flex items-center text-yellow-1"
                     href="tel:+8801963225525"
