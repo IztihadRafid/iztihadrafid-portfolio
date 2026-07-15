@@ -15,7 +15,7 @@ const SocialCard = () => {
           <FaGithub size={30} className="socialSvg mr-2" />Github
         </a>
         <a
-          href="https://drive.google.com/file/d/1GqnKaVL3lJAoXwITBPUdb-wBf3tPxE3F/view?usp=drive_link"
+          href="https://drive.google.com/file/d/1_Ffoxly_-MYOOxwtg7SouJEMgy3tBBny/view?usp=drive_link"
           target="_blank"
           
           className="socialContainer containerTwo text-lg   "
