@@ -32,7 +32,7 @@ const Service = () => {
         }
     ]
   return (
-  <div className=" mt-10 md:my-14 lg:my-26 max-w-8xl mx-auto" id="about">
+  <div id="service" className=" mt-10 md:my-14 lg:my-26 max-w-8xl mx-auto">
       <div className="flex flex-col items-center pt-10 md:mb-8 lg:mb-10 mb-0">
         <h1 className="lg:text-6xl  md:text-4xl text-4xl flex items-center justify-center gap-2">
           <SplitText
