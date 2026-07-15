@@ -118,14 +118,14 @@ const About = () => {
                 heading="Higher Secondary Certificate (HSC)"
                 subHeading="Science"
                 institute="Uttara High School & College"
-                date="2018 - 2019"
+                date="2019"
               />
 
               <EduCard
                 heading="Secondary School Certificate (SSC)"
                 subHeading="Science"
                 institute="Uttara High School & College"
-                date="2016 - 2017"
+                date="2017"
               />
             </motion.div>
           </TabsContent>
