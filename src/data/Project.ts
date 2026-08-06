@@ -5,6 +5,7 @@ import projectLiveBistroBossRes from "../../public/assets/projectIMg/bistroBoss.
 import eventdev from "../../public/assets/projectIMg/eventdev.png";
 import projectLiveFruitBurst from "../../public/assets/projectIMg/fruitBurst.png";
 import vista from "../../public/assets/projectIMg/vista.webp";
+import shipnow from "../../public/assets/projectIMg/shipnow.webp";
 import { StaticImageData } from "next/image";
 export interface Project {
   id: string;
@@ -105,4 +106,13 @@ export const projects :Project[]= [
         live: "https://vistasystech.com/",
         techs: ["Wordpress", "Elementor Pro", "Php","Crafto Theme","Cloudflare","RankMath SEO"],
     },
+    {
+    id: "8",
+    title: "ShipNow",
+    description: "A logistics dashboard for managing shipments, tracking deliveries, and handling invoices — built from Figma design specs with fully responsive layouts across desktop, tablet, and mobile.",
+    image: shipnow,
+    github: "https://github.com/IztihadRafid/shipnow",
+    live: "https://shipnow-gules.vercel.app",
+    techs: ["Next.js", "TypeScript", "Tailwind CSS", "ApexCharts", "React"],
+},
 ];
