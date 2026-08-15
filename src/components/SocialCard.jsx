@@ -12,25 +12,34 @@ const SocialCard = () => {
           rel="noopener noreferrer"
           className="socialContainer containerOne text-lg  text-white "
         >
-          <FaGithub size={30} className="socialSvg mr-2" />Github
+          <FaGithub size={30} className="socialSvg mr-2" />
+          Github
         </a>
         <a
-          href="https://drive.google.com/file/d/18splam9E400mNPeBUJN3aJaaZA3Eodaj/view?usp=drive_link"
+          href="https://drive.google.com/file/d/1oYXANiNOqHY6A34BfyORH56RjFD73Li9/view?usp=drive_link"
           target="_blank"
-          
           className="socialContainer containerTwo text-lg   "
         >
-          <FileText size={30} className="socialSvg mr-1" /><span className="text-white">Resume</span>
+          <FileText size={30} className="socialSvg mr-1" />
+          <span className="text-white">Resume</span>
         </a>
-        
-        <a href="https://www.linkedin.com/in/md-iztihad-rafid-2334992b3/"  target="_blank"
-          rel="noopener noreferrer" className="socialContainer containerThree text-lg  ">
-            <FaLinkedin size={30} className="socialSvg mr-2" /><span className="text-white">Linkedin</span>
-         
+
+        <a
+          href="https://www.linkedin.com/in/md-iztihad-rafid-2334992b3/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="socialContainer containerThree text-lg  "
+        >
+          <FaLinkedin size={30} className="socialSvg mr-2" />
+          <span className="text-white">Linkedin</span>
         </a>
-        <a  href="tel:+8801963225525"  rel="noopener noreferrer" className="socialContainer containerFour text-lg ">
-         <FaWhatsapp size={30} className="socialSvg mr-2" /><span className="text-white">Whatsapp</span>
-         
+        <a
+          href="tel:+8801963225525"
+          rel="noopener noreferrer"
+          className="socialContainer containerFour text-lg "
+        >
+          <FaWhatsapp size={30} className="socialSvg mr-2" />
+          <span className="text-white">Whatsapp</span>
         </a>
       </div>
     </StyledWrapper>
@@ -54,7 +63,7 @@ const StyledWrapper = styled.div`
   .socialContainer {
     width: 140px;
     height: 52px;
-    background-color: #1A2131;
+    background-color: #1a2131;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -68,11 +77,10 @@ const StyledWrapper = styled.div`
     transition-duration: 0.3s;
     transform: scale(1.2);
     border-radius: 15px;
-    
   }
   /* twitter*/
   .containerTwo:hover {
-    background-color: #F59E0B;
+    background-color: #f59e0b;
     transition-duration: 0.3s;
     transform: scale(1.2);
     border-radius: 15px;
