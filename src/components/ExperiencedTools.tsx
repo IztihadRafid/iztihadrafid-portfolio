@@ -19,11 +19,13 @@ import vscode from "./../../public/assets/vs.webp";
 import jira from "./../../public/assets/jira.webp";
 import apidog from "./../../public/assets/apigod.webp";
 import postman from "./../../public/assets/postman.webp";
+import prisma from "./../../public/assets/prisma.png";
+import postgresql from "./../../public/assets/postgresql.png";
+import cvat from "./../../public/assets/CVAT.png";
 import SplitText from "./SplitText";
 import TrueFocus from "./TrueFocus";
 
 const ExperiencedTools = () => {
-
   return (
     <div className="lg:pb-8 pb-4 mx-auto max-w-8xl">
       <div className="flex flex-col items-center pt-10 md:mb-8 lg:mb-10 mb-0">
@@ -41,7 +43,7 @@ const ExperiencedTools = () => {
             rootMargin="-120px"
             textAlign="center"
           />
-           <SplitText
+          <SplitText
             text="&"
             className="text font-semibold text-red-1"
             delay={50}
@@ -245,6 +247,26 @@ const ExperiencedTools = () => {
               />
               <h5>MongoDB</h5>
             </div>
+            <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-green-300  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
+              <Image
+                src={prisma}
+                alt="Prisma"
+                width={70}
+                height={70}
+                className="mx-auto w-12 h-12 p-1"
+              />
+              <h5>Prisma</h5>
+            </div>
+            <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-green-300  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
+              <Image
+                src={postgresql}
+                alt="PostgreSQL"
+                width={70}
+                height={70}
+                className="mx-auto w-12 h-12 p-1"
+              />
+              <h5>PostgreSQL</h5>
+            </div>
           </div>
         </div>
         {/* right content */}
@@ -301,7 +323,7 @@ const ExperiencedTools = () => {
               />
               <h5>Apidog</h5>
             </div>
-             <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-[#fe6a39]  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
+            <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-[#fe6a39]  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
               <Image
                 src={postman}
                 alt="postman"
@@ -310,6 +332,16 @@ const ExperiencedTools = () => {
                 className="mx-auto w-12 h-12 p-1"
               />
               <h5>Postman</h5>
+            </div>
+            <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-green-300  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
+              <Image
+                src={cvat}
+                alt="CVAT"
+                width={70}
+                height={70}
+                className="mx-auto w-12 h-12 p-1"
+              />
+              <h5>CVAT</h5>
             </div>
           </div>
         </div>

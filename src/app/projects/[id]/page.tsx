@@ -1,6 +1,6 @@
 import SplitText from "@/components/SplitText";
 import { projects } from "@/data/Project";
-import { ExternalLink, } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { FaGithub } from "react-icons/fa";
@@ -12,11 +12,11 @@ export default async function ProjectDetails({
 }) {
   const { id } = await params;
   const project = projects.find((p) => p.id === id);
-if(!project) {
-   notFound()
+  if (!project) {
+    notFound();
   }
   const { title, image, description, techs, github, live } = project;
-  
+
   return (
     <div className="bg-black-1 md:mt-8 lg:mt-8 mb-8 w-[90%] md:max-w-8xl mx-auto">
       <div className="flex flex-col items-center pt-10 md:mb-20 mb-6 lg:mb-16 ">
@@ -47,16 +47,17 @@ if(!project) {
               className="w-full rounded-2xl"
             ></Image>
           </div>
-          <div  className="md:w-1/2">
+          <div className="md:w-1/2">
             <h1 className="text-3xl md:text-5xl font-bold text-white">
               {title}
             </h1>
 
             {/* Description */}
-            <p className="mt-5 text-base md:text-lg leading-8 text-gray-2">
-              {description}
-            </p>
-
+            <ul className="mt-5 space-y-2 text-base md:text-lg leading-8 text-gray-2 list-disc list-inside">
+              {description.split("\n").map((point, i) => (
+                <li key={i}>{point}</li>
+              ))}
+            </ul>
             {/* Tech Stack */}
             <div className="mt-8 flex flex-wrap gap-3">
               {techs?.map((tech) => (
@@ -74,7 +75,8 @@ if(!project) {
               <a
                 href={github}
                 target="_blank"
-                className="flex items-center gap-2 rounded-lg bg-red-1 px-5 py-3 text-white transition-all duration-300 hover:bg-[#E75A58]">
+                className="flex items-center gap-2 rounded-lg bg-red-1 px-5 py-3 text-white transition-all duration-300 hover:bg-[#E75A58]"
+              >
                 <FaGithub size={18} />
                 GitHub
               </a>

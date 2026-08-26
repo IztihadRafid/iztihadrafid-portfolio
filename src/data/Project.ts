@@ -6,6 +6,8 @@ import eventdev from "../../public/assets/projectIMg/eventdev.png";
 import projectLiveFruitBurst from "../../public/assets/projectIMg/fruitBurst.png";
 import vista from "../../public/assets/projectIMg/vista.webp";
 import shipnow from "../../public/assets/projectIMg/shipnow.webp";
+import estatemarket from "../../public/assets/projectIMg/estatemarket.webp";
+import vistaltd from "../../public/assets/projectIMg/vistaltd.png";
 import { StaticImageData } from "next/image";
 export interface Project {
   id: string;
@@ -22,7 +24,7 @@ export const projects :Project[]= [
         id: "1",
         title: "Veloxa",
         image: veloxaImg,
-        description: "A full-stack MERN application that connects admins, riders, and customers through role-based dashboards, real-time delivery tracking, and secure Stripe payments. Built with React, Node.js/Express, and MongoDB, and deployed on Firebase and Vercel.",
+        description: "Full-stack MERN application connecting admins, riders, and customers through role-based dashboards\nReal-time delivery tracking and secure Stripe payments\nBuilt with React, Node.js/Express, and MongoDB\nDeployed on Firebase and Vercel",
         github: "https://github.com/IztihadRafid/veloxa-client",
         live: "https://zapshift-a89f5.web.app",
         techs: [
@@ -40,7 +42,7 @@ export const projects :Project[]= [
         id: "2",
         title: "Blood Donation",
         image: bloodDonation,
-        description: "A comprehensive MERN-based blood donation management platform that efficiently connects blood donors with recipients. The system includes JWT authentication, role-based dashboards, automated email notifications, donor search by district and blood group, request management, hospital tracking, Stripe payment integration, analytics dashboards, and an admin panel for complete system management.",
+        description: "Comprehensive MERN-based blood donation platform connecting donors with recipients\nJWT authentication and role-based dashboards\nDonor search by district and blood group, with request and hospital management\nAutomated email notifications via Nodemailer\nStripe payment integration and analytics dashboards\nFull admin panel for system management",
         github: "https://github.com/IztihadRafid/EmergenceyBloodDonation-Client",
         live: "https://emergencyblooddonation-d3909.web.app",
         techs: [
@@ -53,27 +55,36 @@ export const projects :Project[]= [
         ],
     },
     {
-        id: "3",
+    id: "3",
+    title: "Estatemarket",
+    description: "Full-stack real estate marketplace for browsing, searching, and filtering property listings\nAuthentication via email/password and Google OAuth using Better Auth\nAuthenticated users can list properties with image uploads via Cloudinary\nProperty inquiry emails sent through Resend using React Email templates\nBuilt with Next.js App Router, Prisma, and PostgreSQL (Neon)\nFully responsive UI with Tailwind CSS",
+    image: estatemarket,
+    github: "https://github.com/IztihadRafid/EstateManagment",
+    live: "https://estate-managment.vercel.app/",
+    techs: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Better Auth", "Tailwind CSS", "Cloudinary", "Resend","Zustand"],
+},
+    {
+        id: "4",
         title: "SkillBridgeBD",
         image: skillbridgebd,
-        description: "SkillBridgeBD is a modern MERN stack learning platform that connects learners with educational resources through a responsive and intuitive interface. The application features secure Firebase authentication, dynamic course management, role-based access, and a seamless user experience built with React, Tailwind CSS, and MongoDB.",
+        description: "Modern MERN stack learning platform connecting learners with educational resources\nSecure Firebase authentication with role-based access\nDynamic course management and a responsive, intuitive interface\nBuilt with React, Tailwind CSS, and MongoDB",
         github: "https://github.com/IztihadRafid/skillbridge-bd",
         live: "https://skillbridge-bd.web.app",
         techs: ["React", "Tailwind", "Firebase", "MongoDB", "DaisyUI"],
     },
     {
-        id: "4",
+        id: "5",
         title: "Bistro Boss",
-        description: "A full-stack restaurant management and food ordering application built with the MERN stack. Users can browse menus, place online orders, and complete secure payments through Stripe, while administrators manage menus, users, and orders via an interactive dashboard featuring analytics and data visualization using Recharts.",
+        description: "Full-stack restaurant management and food ordering application built with the MERN stack\nUsers can browse menus, place online orders, and complete secure payments through Stripe\nAdmins manage menus, users, and orders via an interactive dashboard\nAnalytics and data visualization powered by Recharts",
         image: projectLiveBistroBossRes,
         github: "https://github.com/IztihadRafid/Bistro-Boss-Client",
         live: "https://bistro-boss-167af.web.app",
         techs: ["React", "Tailwind", "Firebase", "MongoDB", "DaisyUI"],
     },
     {
-        id: "5",
+        id: "6",
         title: "Event Developer",
-        description:"Its a Modern Nextjs applicaion for Event Management, built with Nextjs 16 featured with App routing, server actions, hooks like use cache, for backend mongoose, mongodb.for handling typing error -Typescript is used. User can browse, see the Events booking forms, and manage Events with Cloudinary-powered image uploads.",
+        description:"Modern Next.js 16 application for event management, using the App Router and Server Actions\nUses the use cache hook for optimized data fetching\nBackend powered by Mongoose and MongoDB, with TypeScript for type safety\nUsers can browse events, use booking forms, and manage events with Cloudinary-powered image uploads",
         image: eventdev,
         github: "https://github.com/IztihadRafid/EventDeveloper",
         live: "https://eventdeveloper.vercel.app",
@@ -89,27 +100,36 @@ export const projects :Project[]= [
         ],
     },
     {
-        id: "6",
+        id: "7",
         title: "Fruit Burst",
-        description: "ruitBurst is a modern e-commerce web application for browsing and purchasing fresh fruits online. The platform offers a responsive shopping experience with product categories, detailed product pages, secure user authentication, shopping cart functionality, and an intuitive interface for seamless online ordering.",
+        description: "Modern e-commerce web application for browsing and purchasing fresh fruits online\nProduct categories and detailed product pages\nSecure user authentication and shopping cart functionality\nResponsive, intuitive interface for seamless online ordering",
         image: projectLiveFruitBurst,
         github: "https://github.com/IztihadRafid/Fruit-Burst",
         live: "https://iztihadrafid.github.io/Fruit-Burst",
         techs: ["HTML", "CSS", "Tailwind"],
     },
      {
-        id: "7",
+        id: "8",
         title: "Vista Systech Ltd.",
-        description: "Vista SysTech delivers innovative technology solutions for client success. Discover our commitment to excellence and transform your business today.",
+        description: "Corporate website for Vista SysTech, delivering innovative technology solutions for client success\nBuilt on WordPress with the Crafto theme and Elementor Pro\nOptimized for SEO with RankMath and served through Cloudflare",
         image: vista,
         github: "/",
         live: "https://vistasystech.com/",
         techs: ["Wordpress", "Elementor Pro", "Php","Crafto Theme","Cloudflare","RankMath SEO"],
     },
     {
-    id: "8",
+    id: "9",
+    title: "Vista Systech",
+    description: "Internal web application built for Vista Systech Ltd. during my internship\nDeveloped with Next.js and TypeScript for a type-safe, scalable frontend\nUses MongoDB for data storage and shadcn/ui for accessible, consistent UI components\nImage handling via Cloudinary and performance/traffic insights via Google Analytics\nDeployed and served through Cloudflare",
+    image:vistaltd,
+    github: "/",
+    live: "https://vistasystech.eu",
+    techs: ["Next.js", "TypeScript", "MongoDB", "ShadCN", "Cloudinary", "Google Analytics", "Cloudflare"],
+},
+    {
+    id: "10",
     title: "ShipNow",
-    description: "A logistics dashboard for managing shipments, tracking deliveries, and handling invoices — built from Figma design specs with fully responsive layouts across desktop, tablet, and mobile.",
+    description: "Logistics dashboard for managing shipments, tracking deliveries, and handling invoices\nBuilt from Figma design specs with pixel-accurate implementation\nFully responsive layouts across desktop, tablet, and mobile\nData visualization powered by ApexCharts",
     image: shipnow,
     github: "https://github.com/IztihadRafid/shipnow",
     live: "https://shipnow-gules.vercel.app",
