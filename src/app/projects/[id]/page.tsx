@@ -51,13 +51,39 @@ export default async function ProjectDetails({
             <h1 className="text-3xl md:text-5xl font-bold text-white">
               {title}
             </h1>
-
             {/* Description */}
-            <ul className="mt-5 space-y-2 text-base md:text-lg leading-8 text-gray-2 list-disc list-inside">
-              {description.split("\n").map((point, i) => (
-                <li key={i}>{point}</li>
-              ))}
-            </ul>
+            <div className="mt-5 space-y-2 text-base md:text-lg leading-8 text-gray-2">
+              {description.split("\n").map((point, i) => {
+                const line = point.trim();
+
+                if (!line) {
+                  return <div key={i} className="h-2" />;
+                }
+
+                const isHeading =
+                  line === "Key Responsibilities:" ||
+                  line === "Special Features:";
+
+                if (isHeading) {
+                  return (
+                    <h3 key={i} className="pt-3 font-semibold text-white">
+                      {line}
+                    </h3>
+                  );
+                }
+
+                if (line.startsWith("•")) {
+                  return (
+                    <p key={i} className="pl-1">
+                      {line}
+                    </p>
+                  );
+                }
+
+                return <p key={i}>{line}</p>;
+              })}
+            </div>
+
             {/* Tech Stack */}
             <div className="mt-8 flex flex-wrap gap-3">
               {techs?.map((tech) => (

@@ -9,6 +9,7 @@ import shipnow from "../../public/assets/projectIMg/shipnow.webp";
 import estatemarket from "../../public/assets/projectIMg/estatemarket.webp";
 import vistaltd from "../../public/assets/projectIMg/vistaltd.png";
 import devdesk from "../../public/assets/projectIMg/devdesk.webp";
+import opervia from "../../public/assets/projectIMg/opervia.png";
 import { StaticImageData } from "next/image";
 export interface Project {
   id: string;
@@ -22,6 +23,43 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "1",
+    title: "Opervia",
+    image: opervia,
+    description:
+      "Developed a full-stack SaaS management platform that enables organizations to manage applications, subscriptions, vendors, licenses, expenses, team members, and business analytics through a centralized dashboard.\n" +
+      "Key Responsibilities:\n" +
+      "• Designed responsive dashboard pages and reusable UI components.\n" +
+      "• Developed REST API routes and backend services using Next.js and MongoDB.\n" +
+      "• Implemented authentication, organization membership validation, and role-based access control.\n" +
+      "• Built organization-scoped CRUD operations with server-side validation using Zod.\n" +
+      "• Implemented invitation workflows and team membership management.\n" +
+      "• Integrated interactive charts and analytics for applications, subscriptions, and expenses.\n" +
+      "• Optimized database queries using indexes, pagination, filtering, and sorting.\n" +
+      "• Added activity tracking and organization-specific category management.\n\n" +
+      "Special Features:\n" +
+      "• Multi-tenant organization management with role-based permissions.\n" +
+      "• Centralized management of SaaS assets and business expenses.\n" +
+      "• Interactive analytics with status and category breakdowns.\n" +
+      "• Secure API authorization and organization-level data isolation.",
+    github: "https://github.com/IztihadRafid/Opervia",
+    live: "https://opervia-five.vercel.app",
+    techs: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "ShadCN",
+      "MongoDB",
+      "Mongoose",
+      "Auth.js",
+      "TanStack Query",
+      "Zod",
+      "ApexCharts",
+    ],
+  },
+
+  {
+    id: "2",
     title: "Veloxa",
     image: veloxaImg,
     description:
@@ -40,7 +78,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: "2",
+    id: "3",
     title: "Blood Donation",
     image: bloodDonation,
     description:
@@ -57,7 +95,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: "3",
+    id: "4",
     title: "Estatemarket",
     description:
       "Full-stack real estate marketplace for browsing, searching, and filtering property listings\nAuthentication via email/password and Google OAuth using Better Auth\nAuthenticated users can list properties with image uploads via Cloudinary\nProperty inquiry emails sent through Resend using React Email templates\nBuilt with Next.js App Router, Prisma, and PostgreSQL (Neon)\nFully responsive UI with Tailwind CSS",
@@ -77,7 +115,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: "4",
+    id: "5",
     title: "DevDesk",
     description: `DevDesk is a full-stack SaaS platform unifying issue tracking, real-time team chat, and AI-assisted development tools.
 Combined bug tracking and team chat into one product
@@ -99,7 +137,7 @@ Full issue lifecycle tracking with activity audit trail and dashboard analytics`
     ],
   },
   {
-    id: "5",
+    id: "6",
     title: "Bistro Boss",
     description:
       "Full-stack restaurant management and food ordering application built with the MERN stack\nUsers can browse menus, place online orders, and complete secure payments through Stripe\nAdmins manage menus, users, and orders via an interactive dashboard\nAnalytics and data visualization powered by Recharts",
@@ -109,7 +147,7 @@ Full issue lifecycle tracking with activity audit trail and dashboard analytics`
     techs: ["React", "Tailwind", "Firebase", "MongoDB", "DaisyUI"],
   },
   {
-    id: "6",
+    id: "7",
     title: "Event Developer",
     description:
       "Modern Next.js 16 application for event management, using the App Router and Server Actions\nUses the use cache hook for optimized data fetching\nBackend powered by Mongoose and MongoDB, with TypeScript for type safety\nUsers can browse events, use booking forms, and manage events with Cloudinary-powered image uploads",
@@ -128,7 +166,7 @@ Full issue lifecycle tracking with activity audit trail and dashboard analytics`
     ],
   },
   {
-    id: "7",
+    id: "8",
     title: "Fruit Burst",
     description:
       "Modern e-commerce web application for browsing and purchasing fresh fruits online\nProduct categories and detailed product pages\nSecure user authentication and shopping cart functionality\nResponsive, intuitive interface for seamless online ordering",
@@ -138,7 +176,7 @@ Full issue lifecycle tracking with activity audit trail and dashboard analytics`
     techs: ["HTML", "CSS", "Tailwind"],
   },
   {
-    id: "8",
+    id: "9",
     title: "Vista Systech Ltd.",
     description:
       "Corporate website for Vista SysTech, delivering innovative technology solutions for client success\nBuilt on WordPress with the Crafto theme and Elementor Pro\nOptimized for SEO with RankMath and served through Cloudflare",
@@ -155,7 +193,7 @@ Full issue lifecycle tracking with activity audit trail and dashboard analytics`
     ],
   },
   {
-    id: "9",
+    id: "10",
     title: "Vista Systech",
     description:
       "Internal web application built for Vista Systech Ltd. during my internship\nDeveloped with Next.js and TypeScript for a type-safe, scalable frontend\nUses MongoDB for data storage and shadcn/ui for accessible, consistent UI components\nImage handling via Cloudinary and performance/traffic insights via Google Analytics\nDeployed and served through Cloudflare",
@@ -173,7 +211,7 @@ Full issue lifecycle tracking with activity audit trail and dashboard analytics`
     ],
   },
   {
-    id: "10",
+    id: "11",
     title: "ShipNow",
     description:
       "Logistics dashboard for managing shipments, tracking deliveries, and handling invoices\nBuilt from Figma design specs with pixel-accurate implementation\nFully responsive layouts across desktop, tablet, and mobile\nData visualization powered by ApexCharts",
@@ -183,7 +221,7 @@ Full issue lifecycle tracking with activity audit trail and dashboard analytics`
     techs: ["Next.js", "TypeScript", "Tailwind CSS", "ApexCharts", "React"],
   },
   {
-    id: "11",
+    id: "12",
     title: "SkillBridgeBD",
     image: skillbridgebd,
     description:
