@@ -16,7 +16,7 @@ const SocialCard = () => {
           Github
         </a>
         <a
-          href="https://drive.google.com/file/d/1ZA4AiCabqch1CP3RjwL3vnoVvIMzm-tl/view?usp=drive_link"
+          href="https://drive.google.com/file/d/1O1vK0XrrxIwpAY36oqKVrXBr_oebkKHf/view?usp=drive_link"
           target="_blank"
           className="socialContainer containerTwo text-lg   "
         >
