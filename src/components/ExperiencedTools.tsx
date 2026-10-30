@@ -1,5 +1,4 @@
-import Image from "next/image";
-
+import Image, { type StaticImageData } from "next/image";
 import htmlpic from "./../../public/assets/htmlPic.png";
 import cssPic from "./../../public/assets/css.png";
 import tailwind from "./../../public/assets/tailwindcss.png";
@@ -26,6 +25,127 @@ import cvat from "./../../public/assets/CVAT.png";
 import SplitText from "./SplitText";
 import TrueFocus from "./TrueFocus";
 
+type Tool = {
+  name: string;
+  kind: string;
+  color: string;
+  src: StaticImageData;
+};
+
+const frontendTools: Tool[] = [
+  { name: "HTML", kind: "Markup", color: "#E34F26", src: htmlpic },
+  { name: "CSS", kind: "Styling", color: "#2965F1", src: cssPic },
+  { name: "Tailwind CSS", kind: "Styling", color: "#38BDF8", src: tailwind },
+  { name: "daisyUI", kind: "Components", color: "#FFC63F", src: daisyUiPic },
+  { name: "shadcn/ui", kind: "Components", color: "#F4F4F5", src: shadcn },
+  {
+    name: "JavaScript",
+    kind: "Language",
+    color: "#F7DF1E",
+    src: javascriptimg,
+  },
+  { name: "TypeScript", kind: "Language", color: "#3178C6", src: typescript },
+  { name: "React", kind: "Library", color: "#61DAFB", src: reactPic },
+  { name: "Next.js", kind: "Framework", color: "#FFFFFF", src: nextPic },
+  { name: "WordPress", kind: "CMS", color: "#21759B", src: wp },
+  {
+    name: "Firebase",
+    kind: "Backend service",
+    color: "#FFCA28",
+    src: firebasePic,
+  },
+];
+
+const backendTools: Tool[] = [
+  { name: "Node.js", kind: "Runtime", color: "#68A063", src: nodejsPic },
+  { name: "Express.js", kind: "Framework", color: "#E8E8E8", src: expressPic },
+  { name: "MongoDB", kind: "Database", color: "#47A248", src: mongodb },
+  { name: "Prisma", kind: "ORM", color: "#5A67D8", src: prisma },
+  { name: "PostgreSQL", kind: "Database", color: "#4169E1", src: postgresql },
+];
+
+const platformTools: Tool[] = [
+  { name: "GitHub", kind: "Version control", color: "#F5F5F5", src: github },
+  { name: "VS Code", kind: "Editor", color: "#007ACC", src: vscode },
+  {
+    name: "Playwright",
+    kind: "E2E testing",
+    color: "#2EAD33",
+    src: playwright,
+  },
+  { name: "Jira", kind: "Project tracking", color: "#0052CC", src: jira },
+  { name: "Apidog", kind: "API testing", color: "#3CB371", src: apidog },
+  { name: "Postman", kind: "API client", color: "#FF6C37", src: postman },
+  { name: "CVAT", kind: "Annotation", color: "#4CAF50", src: cvat },
+];
+
+const ToolCard = ({ name, kind, color, src }: Tool) => (
+  <div className="group relative overflow-hidden rounded-2xl border border-white/[0.09] bg-[linear-gradient(160deg,#1c1c1c_0%,#131313_100%)] p-4 transition-transform duration-300 hover:-translate-y-1 sm:p-5">
+    {/* accent wash */}
+    <span
+      className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-25"
+      style={{ background: color }}
+    />
+    {/* accent ring + glow */}
+    <span
+      className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+      style={{
+        boxShadow: `inset 0 0 0 1px ${color}66, 0 26px 50px -28px ${color}80`,
+      }}
+    />
+
+    <div className="relative flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+      <span className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.05] sm:h-14 sm:w-14">
+        <Image
+          src={src}
+          alt={name}
+          width={70}
+          height={70}
+          className="h-7 w-7 object-contain transition-transform duration-300 group-hover:scale-110 sm:h-8 sm:w-8"
+        />
+      </span>
+      <span className="min-w-0">
+        <h6 className="truncate text-[13px] font-semibold leading-tight text-gray-1 sm:text-[15px]">
+          {name}
+        </h6>
+        <p className="mt-1 truncate text-[10px] font-medium uppercase tracking-[0.16em] text-gray-3 transition-colors duration-300 group-hover:text-gray-2 sm:text-[11px]">
+          {kind}
+        </p>
+      </span>
+    </div>
+  </div>
+);
+
+type SkillGroupProps = {
+  sentence: string;
+  tools: Tool[];
+  gridClassName: string;
+};
+
+const SkillGroup = ({ sentence, tools, gridClassName }: SkillGroupProps) => (
+  <section>
+    <div className="mb-7 border-b border-white/[0.08] pb-6">
+      <div className="w-fit">
+        <TrueFocus
+          sentence={sentence}
+          manualMode={false}
+          blurAmount={3}
+          borderColor="#D84846"
+          animationDuration={0.5}
+          pauseBetweenAnimations={1}
+          className="text-xl text-white md:text-[26px] lg:text-3xl"
+        />
+      </div>
+    </div>
+
+    <div className={`grid gap-3 lg:gap-4 ${gridClassName}`}>
+      {tools.map((tool) => (
+        <ToolCard key={tool.name} {...tool} />
+      ))}
+    </div>
+  </section>
+);
+
 const ExperiencedTools = () => {
   return (
     <div className="lg:pb-8 pb-4 mx-auto max-w-8xl">
@@ -33,7 +153,7 @@ const ExperiencedTools = () => {
         <h1 className="lg:text-6xl md:text-4xl text-4xl flex items-center justify-center gap-2">
           <SplitText
             text="Skills"
-            className="text font-semibold text-gray-1"
+            className="text font-semibold text-white"
             delay={50}
             duration={1.0}
             ease="power3.out"
@@ -59,7 +179,7 @@ const ExperiencedTools = () => {
           />
           <SplitText
             text="Tools"
-            className="text font-semibold text-gray-1"
+            className="text font-semibold text-white"
             delay={50}
             duration={1.0}
             ease="power3.out"
@@ -74,288 +194,28 @@ const ExperiencedTools = () => {
         <div className=" md:mt-1 lg:mt-3 h-1 w-44 lg:w-64 rounded-full bg-red-1"></div>
       </div>
       <div className="flex justify-center items-center">
-        <p className="text-gray-1 text-center p-2 lg:w-[600px] md:w-96 w-60">
+        <p className="text-gray-2 text-center p-2 lg:w-[600px] md:w-96 w-60">
           The Technologies and Tools I have used to build modern, responsive,
           and user-friendly websites and applications.
         </p>
       </div>
-      <section className="text-white flex justify-center mt-15 lg:justify-start items-center w-[90%] lg:max-w-8xl mx-auto mb-10">
-        <TrueFocus
-          sentence="Frontend Technologies"
-          manualMode={false}
-          blurAmount={3}
-          borderColor="#D84846"
-          animationDuration={0.5}
-          pauseBetweenAnimations={1}
-          className=" text-xl md:text-3xl lg:text-4xl "
-        />
-      </section>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-10 gap-4 text-white w-[90%] lg:max-w-8xl mx-auto  ">
-        <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-red-1  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:lg:w-[120px]">
-          <Image
-            src={htmlpic}
-            alt="Html"
-            width={70}
-            height={70}
-            className="mx-auto w-13 h-13 "
-          />
-          <h5>Html</h5>
-        </div>
-        <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-blue-500  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
-          <Image
-            src={cssPic}
-            alt="CSS"
-            width={70}
-            height={70}
-            className="mx-auto w-10 h-10"
-          />
-          <h5>CSS</h5>
-        </div>
-        <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-cyan-300  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
-          <Image
-            src={tailwind}
-            alt="taiwlind"
-            width={70}
-            height={70}
-            className="mx-auto w-13 h-13"
-          />
-          <h5>Tailwind</h5>
-        </div>
-        <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-yellow-300  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
-          <Image
-            src={daisyUiPic}
-            alt="daisyUi"
-            width={70}
-            height={70}
-            className="mx-auto w-13 h-13"
-          />
-          <h5>daisyUI</h5>
-        </div>
-        <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-gray-300  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
-          <Image
-            src={shadcn}
-            alt="shadcn"
-            width={70}
-            height={70}
-            className="mx-auto w-13 h-13 p-1 rounded-full"
-          />
-          <h5>ShadCn</h5>
-        </div>
-        <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-yellow-300  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
-          <Image
-            src={javascriptimg}
-            alt="javascript"
-            width={60}
-            height={60}
-            className="mx-auto w-10 h-10"
-          />
-          <h5>Javascript</h5>
-        </div>
-        <div className="flex flex-col  justify-center hover:scale-110 duration-300 hover:text-blue-300  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
-          <Image
-            src={typescript}
-            alt="typscript"
-            width={60}
-            height={60}
-            className="mx-auto w-10 h-10"
-          />
-          <h5>Typescript</h5>
-        </div>
-        <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-cyan-300  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
-          <Image
-            src={reactPic}
-            alt="react"
-            width={70}
-            height={70}
-            className="mx-auto w-13 h-13 "
-          />
-          <h5>React</h5>
-        </div>
-        <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-white items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
-          <Image
-            src={nextPic}
-            alt="Next"
-            width={70}
-            height={70}
-            className="mx-auto w-13 h-13 p-1 rounded-full"
-          />
-          <h5>Nextjs</h5>
-        </div>
-        <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-blue-300  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
-          <Image
-            src={wp}
-            alt="wordpress"
-            width={70}
-            height={70}
-            className="mx-auto w-13 h-13 p-1"
-          />
-          <h5>Wordpress</h5>
-        </div>
-        <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-white items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
-          <Image
-            src={firebasePic}
-            alt="firebase"
-            width={70}
-            height={70}
-            className="mx-auto w-13 h-13"
-          />
-          <h5>Firebase</h5>
-        </div>
-      </div>
 
-      <div className="flex lg:flex-row flex-col justify-between lg:items-start w-[90%] lg:max-w-8xl mx-auto">
-        {/* left content */}
-        <div>
-          <section className="text-white flex justify-center mt-15 lg:justify-start items-center max-w-8xl mx-auto mb-10">
-            <TrueFocus
-              sentence="Backend Technologies"
-              manualMode={false}
-              blurAmount={3}
-              borderColor="#D84846"
-              animationDuration={0.5}
-              pauseBetweenAnimations={1}
-              className=" text-xl md:text-3xl lg:text-4xl "
-            />
-          </section>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-2 text-white mx-auto max-w-8xl">
-            <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-green-300  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
-              <Image
-                src={nodejsPic}
-                alt="Nodejs"
-                width={70}
-                height={70}
-                className="mx-auto w-18 h-12 p-2"
-              />
-              <h5>Nodejs</h5>
-            </div>
-            <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-white  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
-              <Image
-                src={expressPic}
-                alt="Expressjs"
-                width={70}
-                height={70}
-                className="mx-auto w-12  h-12 p-1"
-              />
-              <h5>Expressjs</h5>
-            </div>
-            <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-green-300  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
-              <Image
-                src={mongodb}
-                alt="MongoDB"
-                width={70}
-                height={70}
-                className="mx-auto w-12 h-12 p-1"
-              />
-              <h5>MongoDB</h5>
-            </div>
-            <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-green-300  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
-              <Image
-                src={prisma}
-                alt="Prisma"
-                width={70}
-                height={70}
-                className="mx-auto w-12 h-12 p-1"
-              />
-              <h5>Prisma</h5>
-            </div>
-            <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-green-300  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
-              <Image
-                src={postgresql}
-                alt="PostgreSQL"
-                width={70}
-                height={70}
-                className="mx-auto w-12 h-12 p-1"
-              />
-              <h5>PostgreSQL</h5>
-            </div>
-          </div>
-        </div>
-        {/* right content */}
-        <div>
-          <section className="text-white flex justify-center mt-15 lg:justify-start items-center  mb-10">
-            <TrueFocus
-              sentence="Tools & Platforms"
-              manualMode={false}
-              blurAmount={3}
-              borderColor="#D84846"
-              animationDuration={0.5}
-              pauseBetweenAnimations={1}
-              className=" text-xl md:text-3xl lg:text-4xl "
-            />
-          </section>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 text-white mx-auto max-w-8xl">
-            <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-purple-500  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
-              <Image
-                src={github}
-                alt="github"
-                width={70}
-                height={70}
-                className="mx-auto w-12 h-12 p-2"
-              />
-              <h5>Github</h5>
-            </div>
-            <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-blue-500  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
-              <Image
-                src={vscode}
-                alt="Expressjs"
-                width={70}
-                height={70}
-                className="mx-auto w-12  h-12 p-1"
-              />
-              <h5>VScode</h5>
-            </div>
-            <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-green-500  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
-              <Image
-                src={playwright}
-                alt="Playwright"
-                width={70}
-                height={70}
-                className="mx-auto w-12  h-12 p-1"
-              />
-              <h5>Playwright</h5>
-            </div>
-            <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-blue-500  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
-              <Image
-                src={jira}
-                alt="Jira"
-                width={70}
-                height={70}
-                className="mx-auto w-12 h-12 p-1"
-              />
-              <h5>Jira</h5>
-            </div>
-            <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-white  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
-              <Image
-                src={apidog}
-                alt="apidog"
-                width={70}
-                height={70}
-                className="mx-auto w-12 h-12 p-1"
-              />
-              <h5>Apidog</h5>
-            </div>
-            <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-[#fe6a39]  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
-              <Image
-                src={postman}
-                alt="postman"
-                width={70}
-                height={70}
-                className="mx-auto w-12 h-12 p-1"
-              />
-              <h5>Postman</h5>
-            </div>
-            <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-green-300  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
-              <Image
-                src={cvat}
-                alt="CVAT"
-                width={70}
-                height={70}
-                className="mx-auto w-12 h-12 p-1"
-              />
-              <h5>CVAT</h5>
-            </div>
-          </div>
-        </div>
+      <div className="mt-14 lg:mt-20 w-[90%] lg:max-w-8xl mx-auto flex flex-col gap-16 lg:gap-24">
+        <SkillGroup
+          sentence="Frontend Technologies"
+          tools={frontendTools}
+          gridClassName="grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4"
+        />
+        <SkillGroup
+          sentence="Backend Technologies"
+          tools={backendTools}
+          gridClassName="grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5"
+        />
+        <SkillGroup
+          sentence="Tools & Platforms"
+          tools={platformTools}
+          gridClassName="grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4"
+        />
       </div>
     </div>
   );
