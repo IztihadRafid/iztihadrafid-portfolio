@@ -1,11 +1,5 @@
 "use client";
-import React, {
-  useEffect,
-  useRef,
-  useCallback,
-  useMemo,
-  useState,
-} from "react";
+import React, { useEffect, useRef, useCallback, useMemo } from "react";
 
 const DEFAULT_INNER_GRADIENT =
   "linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)";
@@ -87,14 +81,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   enableTilt = true,
   enableMobileTilt = false,
   mobileTiltSensitivity = 5,
-  miniAvatarUrl,
   name = "Md. Iztihad Rafid",
-  title = "Web Developer",
-  handle = "rafidcodes",
-  status = "Online",
-  contactText = "Contact",
-  showUserInfo = true,
-  onContactClick,
 }) => {
   const wrapRef = useRef<HTMLDivElement>(null);
   const shellRef = useRef<HTMLDivElement>(null);
@@ -409,11 +396,6 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
     ],
   );
 
-  const handleContactClick = useCallback((): void => {
-    onContactClick?.();
-  }, [onContactClick]);
-
-  // Complex styles that require CSS variables and can't be done with Tailwind
   const shineStyle = {
     maskImage: "var(--icon)",
     maskMode: "luminance",
@@ -505,7 +487,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
         <section
           className="grid relative overflow-hidden"
           style={{
-             width: "min(90vw, 400px)",
+            width: "min(90vw, 400px)",
             height: "80svh",
             maxHeight: "min(100vw, 450px)",
             aspectRatio: "0.718",
@@ -544,13 +526,8 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
               gridArea: "1 / -1",
             }}
           >
-            {/* Shine layer */}
             <div style={shineStyle} />
-
-            {/* Glare layer */}
             <div style={glareStyle} />
-
-            {/* Avatar content */}
             <div
               className="overflow-visible"
               style={{
@@ -562,6 +539,9 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                 backfaceVisibility: "hidden",
               }}
             >
+              {/* eslint-disable-next-line @next/next/no-img-element -- avatarUrl is
+                  caller-supplied (remote URLs are not in images.remotePatterns) and
+                  sits inside a 3D transform layer, so next/image adds no benefit. */}
               <img
                 src={avatarUrl}
                 alt={name}
@@ -570,10 +550,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                   borderRadius: cardRadius,
                 }}
               />
-             
             </div>
-
-            
           </div>
         </section>
       </div>

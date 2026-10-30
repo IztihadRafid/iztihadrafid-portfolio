@@ -49,13 +49,24 @@ const SplitText: React.FC<SplitTextProps> = ({
   }, [onLetterAnimationComplete]);
 
   useEffect(() => {
+    let cancelled = false;
+
+    // Wait for webfonts before measuring/cutting the text. Both branches go
+    // through a promise callback so state is not set synchronously inside the
+    // effect (which would trigger a cascading render).
+    const markFontsLoaded = () => {
+      if (!cancelled) setFontsLoaded(true);
+    };
+
     if (document.fonts.status === 'loaded') {
-      setFontsLoaded(true);
+      Promise.resolve().then(markFontsLoaded);
     } else {
-      document.fonts.ready.then(() => {
-        setFontsLoaded(true);
-      });
+      document.fonts.ready.then(markFontsLoaded);
     }
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   useGSAP(
@@ -70,7 +81,9 @@ const SplitText: React.FC<SplitTextProps> = ({
       if (el._rbsplitInstance) {
         try {
           el._rbsplitInstance.revert();
-        } catch (_) {}
+        } catch {
+          // revert() throws if the instance was already reverted
+        }
         el._rbsplitInstance = undefined;
       }
 
@@ -135,7 +148,9 @@ const SplitText: React.FC<SplitTextProps> = ({
         });
         try {
           splitInstance.revert();
-        } catch (_) {}
+        } catch {
+          // already reverted, nothing to clean up
+        }
         el._rbsplitInstance = undefined;
       };
     },

@@ -44,10 +44,10 @@ const Projects = () => {
       </div>
 
       {/* projects */}
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto max-w-8xl">
+      <section className="mx-auto grid w-[90%] max-w-8xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {
             projects?.map((project)=>(
-                <ProjectCard key={project?.title} id={project?.id} title={project?.title} description={project?.description} techs={project?.techs} image={project?.image} github={project?.github} live={project?.live}></ProjectCard>
+                <ProjectCard key={project?.id} id={project?.id} title={project?.title} description={project?.description} techs={project?.techs} image={project?.image} github={project?.github} live={project?.live}></ProjectCard>
             ))
         }
       </section>

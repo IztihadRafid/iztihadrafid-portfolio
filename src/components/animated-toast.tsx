@@ -75,7 +75,7 @@ export function AnimatedToast({
 
     return (
         <motion.div
-            className={cn("pointer-events-auto relative w-[356px] overflow-hidden rounded-lg shadow-lg", "border bg-gray-4", "border-zinc-200 dark:border-zinc-800")}
+            className={cn("pointer-events-auto relative w-[356px] overflow-hidden rounded-lg shadow-lg", "border bg-gray-4", "border-zinc-200 dark:border-zinc-800", className)}
             initial={{ opacity: 0, y: -50, scale: 0.95 }}
             animate={
                 isVisible

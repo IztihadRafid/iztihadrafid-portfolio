@@ -1,6 +1,6 @@
 'use client';
 
-import { ElementType, useEffect, useRef, useState, createElement, useMemo, useCallback } from 'react';
+import { ElementType, useEffect, useRef, useState, useMemo, useCallback } from 'react';
 import { gsap } from 'gsap';
 
 interface TextTypeProps {
@@ -29,7 +29,8 @@ interface TextTypeProps {
 }
 
 const TextType = ({
-  text,
+  text: textProp,
+  texts,
   as: Component = 'div',
   typingSpeed = 50,
   initialDelay = 0,
@@ -44,6 +45,9 @@ const TextType = ({
   cursorBlinkDuration = 0.5,
   textColors = [],
   variableSpeed,
+  variableSpeedEnabled = false,
+  variableSpeedMin = 60,
+  variableSpeedMax = 120,
   onSentenceComplete,
   startOnVisible = false,
   reverseMode = false,
@@ -57,13 +61,24 @@ const TextType = ({
   const cursorRef = useRef<HTMLSpanElement>(null);
   const containerRef = useRef<HTMLElement>(null);
 
-  const textArray = useMemo(() => (Array.isArray(text) ? text : [text]), [text]);
+  const textArray = useMemo(() => {
+    const source = textProp ?? texts ?? '';
+    return Array.isArray(source) ? source : [source];
+  }, [textProp, texts]);
+
+  // `variableSpeed` takes precedence; `variableSpeedEnabled` + min/max is the
+  // older prop trio. Resolving them here keeps them off the DOM element.
+  const speedRange = useMemo(() => {
+    if (variableSpeed) return variableSpeed;
+    if (!variableSpeedEnabled) return undefined;
+    return { min: variableSpeedMin, max: variableSpeedMax };
+  }, [variableSpeed, variableSpeedEnabled, variableSpeedMin, variableSpeedMax]);
 
   const getRandomSpeed = useCallback(() => {
-    if (!variableSpeed) return typingSpeed;
-    const { min, max } = variableSpeed;
+    if (!speedRange) return typingSpeed;
+    const { min, max } = speedRange;
     return Math.random() * (max - min) + min;
-  }, [variableSpeed, typingSpeed]);
+  }, [speedRange, typingSpeed]);
 
   const getCurrentTextColor = () => {
     if (textColors.length === 0) return 'inherit';
@@ -136,7 +151,7 @@ const TextType = ({
               setDisplayedText(prev => prev + processedText[currentCharIndex]);
               setCurrentCharIndex(prev => prev + 1);
             },
-            variableSpeed ? getRandomSpeed() : typingSpeed
+            speedRange ? getRandomSpeed() : typingSpeed
           );
         } else if (textArray.length >= 1) {
           if (!loop && currentTextIndex === textArray.length - 1) return;
@@ -167,31 +182,38 @@ const TextType = ({
     initialDelay,
     isVisible,
     reverseMode,
-    variableSpeed,
-    onSentenceComplete
+    speedRange,
+    onSentenceComplete,
+    getRandomSpeed
   ]);
 
   const shouldHideCursor =
     hideCursorWhileTyping && (currentCharIndex < textArray[currentTextIndex].length || isDeleting);
 
-  return createElement(
-    Component,
-    {
-      ref: containerRef,
-      className: `inline-block whitespace-pre-wrap tracking-tight ${className}`,
-      ...props
-    },
-    <span className="inline" style={{ color: getCurrentTextColor() || 'inherit' }}>
-      {displayedText}
-    </span>,
-    showCursor && (
-      <span
-        ref={cursorRef}
-        className={`ml-1 inline-block opacity-100 ${shouldHideCursor ? 'hidden' : ''} ${cursorClassName}`}
-      >
-        {cursorCharacter}
+  // `Component` is a caller-supplied tag (`as` prop) so the concrete element
+  // type is not known here; typing it as a component keeps the ref valid.
+  const Tag = Component as React.ComponentType<
+    React.HTMLAttributes<HTMLElement> & { ref?: React.Ref<HTMLElement> }
+  >;
+
+  return (
+    <Tag
+      ref={containerRef}
+      className={`inline-block whitespace-pre-wrap tracking-tight ${className}`}
+      {...props}
+    >
+      <span className="inline" style={{ color: getCurrentTextColor() || 'inherit' }}>
+        {displayedText}
       </span>
-    )
+      {showCursor && (
+        <span
+          ref={cursorRef}
+          className={`ml-1 inline-block opacity-100 ${shouldHideCursor ? 'hidden' : ''} ${cursorClassName}`}
+        >
+          {cursorCharacter}
+        </span>
+      )}
+    </Tag>
   );
 };
 

@@ -2,28 +2,62 @@
 import { BriefcaseBusiness, Mail, Rocket } from "lucide-react";
 import SplitText from "./SplitText";
 import SubmitBtn from "./SubmitBtn";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useToast } from "./toast-trigger";
 
 const Contact = () => {
   const { addToast } = useToast();
   const form = useRef<HTMLFormElement>(null);
-  const handlSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [isSending, setIsSending] = useState(false);
+
+  const handlSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const email = formData.get("email") as string;
-    const subject = formData.get("subject") as string;
-    const message = formData.get("message") as string;
+    if (isSending) return;
 
-    console.log(email, subject, message);
-    addToast({
-      message: "Message sent!",
-      description: "I'll get back to you within 24 hours.",
-      type: "success",
-    });
+    const formEl = form.current;
+    if (!formEl) return;
 
-    e.currentTarget.reset();
+    const formData = new FormData(formEl);
+    const email = String(formData.get("email") ?? "").trim();
+    const subject = String(formData.get("subject") ?? "").trim();
+    const message = String(formData.get("message") ?? "").trim();
+
+    setIsSending(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, subject, message }),
+      });
+
+      const data = (await res.json().catch(() => ({}))) as { error?: string };
+
+      if (!res.ok) {
+        addToast({
+          message: "Message not sent",
+          description: data.error ?? "Something went wrong. Please try again.",
+          type: "error",
+        });
+        return;
+      }
+
+      addToast({
+        message: "Message sent!",
+        description: "I'll get back to you within 24 hours.",
+        type: "success",
+      });
+      formEl.reset();
+    } catch {
+      addToast({
+        message: "Message not sent",
+        description: "Network error. Please check your connection and try again.",
+        type: "error",
+      });
+    } finally {
+      setIsSending(false);
+    }
   };
+
   return (
     <div className="bg-black-1/40 backdrop-blur-md md:mt-8 lg:mt-10 text-white" id="contact">
       <div className="flex flex-col items-center pt-10  lg:mb-10 mb-0 max-w-8xl mx-auto">
@@ -109,6 +143,9 @@ const Contact = () => {
                 type="email"
                 required
                 name="email"
+                autoComplete="email"
+                maxLength={254}
+                disabled={isSending}
                 placeholder="Enter Email Address"
                 className="w-full border border-gray-4 rounded-lg p-3 mb-3 mt-2 bg-[#101012]"
               />
@@ -119,6 +156,8 @@ const Contact = () => {
                 required
                 type="text"
                 name="subject"
+                maxLength={200}
+                disabled={isSending}
                 placeholder="Enter Subject"
                 className="w-full border border-gray-4 rounded-lg p-3 mb-3 mt-2 bg-[#101012]"
               />
@@ -129,12 +168,14 @@ const Contact = () => {
                 required
                 rows={5}
                 name="message"
+                maxLength={5000}
+                disabled={isSending}
                 placeholder="Write Your Message"
                 className="w-full border border-gray-4 rounded-lg p-3 mb-3 mt-2 bg-[#101012]"
               />
             </div>
             <div className="my-2">
-              <SubmitBtn type="submit"></SubmitBtn>
+              <SubmitBtn type="submit" loading={isSending} />
             </div>
           </form>
         </div>

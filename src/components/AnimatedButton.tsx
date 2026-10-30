@@ -1,27 +1,25 @@
 "use client";
 
 import React from "react";
-import { motion, MotionProps } from "framer-motion";
+import { motion, MotionProps, type TargetAndTransition } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 type AnimatedButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   MotionProps & {
     children?: React.ReactNode;
-    as?: any;
+    as?: "button" | "a" | "div" | "span";
   };
 
-/**
- * AnimatedButton
- * - theme-aware: uses Tailwind `dark:` classes so it works in both light and dark mode
- * - accepts all native button props (onClick, className, type, etc.)
- */
+const maskFrom = { "--mask-x": "100%" } as unknown as TargetAndTransition;
+const maskTo = { "--mask-x": "-100%" } as unknown as TargetAndTransition;
+
 const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   children = "Browse Components",
   className = "",
   as = "button",
   ...rest
 }) => {
-  const Component = (motion as any)[as] || motion.button;
+  const Component = motion[as] as typeof motion.button;
 
   return (
     <Component
@@ -34,7 +32,6 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
         damping: 30,
         mass: 0.5,
       }}
-      // Set a CSS variable `--shine` that we override for dark mode via Tailwind.
       className={cn(
         "group inline-flex items-center justify-center px-6 py-2 rounded-md relative overflow-hidden bg-neutral-50 dark:bg-black border border-neutral-200 dark:border-[#222]",
         "text-neutral-900 dark:text-neutral-100 font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50",
@@ -51,8 +48,8 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
           maskImage:
             "linear-gradient(-75deg, white calc(var(--mask-x) + 20%), transparent calc(var(--mask-x) + 30%), white calc(var(--mask-x) + 100%))",
         }}
-        initial={{ ["--mask-x" as any]: "100%" } as any}
-        animate={{ ["--mask-x" as any]: "-100%" } as any}
+        initial={maskFrom}
+        animate={maskTo}
         transition={{
           repeat: Infinity,
           duration: 1,
@@ -63,7 +60,6 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
         {children}
       </motion.span>
 
-      {/* Border shine effect uses the --shine variable so it adapts to theme */}
       <motion.span
         className="block absolute inset-0 rounded-md p-px"
         style={{

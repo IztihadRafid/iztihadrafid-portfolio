@@ -2,11 +2,18 @@
 import styled from 'styled-components';
 interface SubmitBtnProps {
   type?: "submit" | "button" | "reset";
+  disabled?: boolean;
+  loading?: boolean;
 }
-const SubmitBtn = ({ type = "button" }: SubmitBtnProps) => {
+const SubmitBtn = ({
+  type = "button",
+  disabled = false,
+  loading = false,
+}: SubmitBtnProps) => {
+  const isBusy = disabled || loading;
   return (
     <StyledWrapper>
-      <button className="">
+      <button type={type} disabled={isBusy} aria-busy={loading}>
         <div className="svg-wrapper-1  ">
           <div className="svg-wrapper ">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={24} height={24}>
@@ -15,7 +22,7 @@ const SubmitBtn = ({ type = "button" }: SubmitBtnProps) => {
             </svg>
           </div>
         </div>
-        <span>Send</span>
+        <span>{loading ? "Sending..." : "Send"}</span>
       </button>
     </StyledWrapper>
   );
@@ -63,6 +70,23 @@ const StyledWrapper = styled.div`
 
   button:active {
     transform: scale(0.95);
+  }
+
+  button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  button:disabled:hover .svg-wrapper {
+    animation: none;
+  }
+
+  button:disabled:hover svg {
+    transform: none;
+  }
+
+  button:disabled:hover span {
+    transform: none;
   }
 
   @keyframes fly-1 {
