@@ -19,6 +19,7 @@ import vscode from "./../../public/assets/vs.webp";
 import jira from "./../../public/assets/jira.webp";
 import apidog from "./../../public/assets/apigod.webp";
 import postman from "./../../public/assets/postman.webp";
+import playwright from "./../../public/assets/playwright.webp";
 import prisma from "./../../public/assets/prisma.png";
 import postgresql from "./../../public/assets/postgresql.png";
 import cvat from "./../../public/assets/CVAT.png";
@@ -302,6 +303,16 @@ const ExperiencedTools = () => {
                 className="mx-auto w-12  h-12 p-1"
               />
               <h5>VScode</h5>
+            </div>
+            <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-green-500  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
+              <Image
+                src={playwright}
+                alt="Playwright"
+                width={70}
+                height={70}
+                className="mx-auto w-12  h-12 p-1"
+              />
+              <h5>Playwright</h5>
             </div>
             <div className="flex flex-col justify-center hover:scale-110 duration-300 hover:text-blue-500  items-center border border-black-4 rounded-xl lg:shadow-md lg:shadow-red-500  bg-[#151515] lg:w-[120px]">
               <Image

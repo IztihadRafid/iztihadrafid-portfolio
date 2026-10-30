@@ -1,98 +1,31 @@
-;
-import styled from "styled-components";
-import Service from "./Service";
+import type { ServiceItem } from "./Service";
 
-const ServiceCard = ({ icon, title, description }: Service) => {
+interface ServiceCardProps extends ServiceItem {
+  index: number;
+}
+
+const ServiceCard = ({ icon, title, description, index }: ServiceCardProps) => {
   return (
-    <StyledWrapper>
-     <div className="flex items-center justify-center">
-         <div className="card">
-        <div className="GameImg">
-          <div className="Gfooter">
-            <div className="SmallIcon" />
-            <span className="Descripion w-60">{description}</span>
-          </div>
-          <span className="GameIcon">{icon}</span>
-          <span className="Name w-44 ">{title}</span>
-        </div>
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-black-4 bg-[linear-gradient(160deg,#191919_0%,#121212_100%)] p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-red-1/60 hover:shadow-[0_20px_45px_-20px_rgba(255,87,87,0.55)] sm:p-7">
+      <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-red-1/10 blur-3xl transition-all duration-500 group-hover:scale-150 group-hover:bg-red-1/25" />
+      <span className="pointer-events-none absolute right-5 top-3 font-mono text-5xl font-bold leading-none text-white/5 transition-colors duration-500 group-hover:text-red-1/15">
+        {String(index + 1).padStart(2, "0")}
+      </span>
+      <div className="relative mb-6 flex h-14 w-14 items-center justify-center rounded-xl border border-red-1/25 bg-red-1/10 text-red-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition-all duration-300 group-hover:-rotate-6 group-hover:border-red-1/60 group-hover:bg-red-1/15">
+        {icon}
       </div>
-     </div>
-    </StyledWrapper>
+      <h3 className="relative text-lg font-semibold leading-snug text-white transition-colors duration-300 group-hover:text-red-1">
+        {title}
+      </h3>
+      <p className="relative mt-2 text-sm leading-6 text-gray-2">
+        {description}
+      </p>
+      {/* Accent line */}
+      <span className="mt-auto block pt-6">
+        <span className="block h-0.5 w-8 rounded-full bg-red-1/40 transition-all duration-500 group-hover:w-full group-hover:bg-red-1" />
+      </span>
+    </article>
   );
 };
-
-const StyledWrapper = styled.div`
-  .card {
-    width: 250px;
-    height: 250px;
-    background: #151515;   
-    border-radius: 10px;
-  }
-
-  .GameIcon {
-    transform: translate(-10px, -10px);
-    position: absolute;
-    width: 150px;
-    height: 200px;
-    transition: 0.5s;
-  }
-
-  .GameImg {
-    width: 100%;
-    height: 100%;
-  }
-
-  .Gfooter {
-    width: 100%;
-    height: 0%;
-    background-color: #262626;
-    border-radius: 10px;
-    transition: all 0.1s;
-  }
-
-  .Name {
-    transform: translate(10px, 100px);
-    position: absolute;
-    background-color: transparent;
-    font-weight: bold;
-    font-size: 24px;
-    transition: 0.3s;
-    color: #ff5858;
-   
-  }
-
-  .Descripion {
-    padding: 8px;
-    position: absolute;
-    transform: translate(0px, 120px);
-    opacity: 0%;
-    color: #ff5858;
-    font-weight: semibold;
-    font-size: 18px;
-
-  }
-  .GameImg:hover .Descripion {
-    opacity: 100%;
-   
-  }
-
-  .GameImg:hover .Gfooter {
-    width: 100%;
-    height: 100%;
-  }
-
-  .GameImg:hover .SmallIcon {
-    width: 60px;
-    height: 60px;
-  }
-
-  .GameImg:hover .Name {
-    transform: translate(15px, -235px);
-  }
-
-  .GameImg:hover .GameIcon {
-    transform: translate(90px, -150px);
-  }
-`;
 
 export default ServiceCard;
