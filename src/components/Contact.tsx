@@ -50,7 +50,8 @@ const Contact = () => {
     } catch {
       addToast({
         message: "Message not sent",
-        description: "Network error. Please check your connection and try again.",
+        description:
+          "Network error. Please check your connection and try again.",
         type: "error",
       });
     } finally {
@@ -59,7 +60,10 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-black-1/40 backdrop-blur-md md:mt-8 lg:mt-10 text-white" id="contact">
+    <div
+      className="bg-black-1/40 backdrop-blur-md md:mt-8 lg:mt-10 text-white"
+      id="contact"
+    >
       <div className="flex flex-col items-center pt-10  lg:mb-10 mb-0 max-w-8xl mx-auto">
         <h1 className="lg:text-6xl md:text-4xl text-4xl ">
           <SplitText
@@ -75,7 +79,7 @@ const Contact = () => {
             rootMargin="-100px"
             textAlign="center"
           />
-           <SplitText
+          <SplitText
             text="Me"
             className=" text font-semibold  text-gray-1 ml-3"
             delay={50}
@@ -98,7 +102,9 @@ const Contact = () => {
 
       <section className="w-full flex lg:flex-row flex-col lg:items-start items-center justify-between gap-6 max-w-8xl mx-auto">
         <div className="lg:w-1/2 mx-auto w-[80%] border border-gray-4 rounded-2xl bg-[#151515] p-10">
-          <h4 className="text-3xl font-semibold mb-3">Let`s <span className="text-red-1">Connect</span></h4>
+          <h4 className="text-3xl font-semibold mb-3">
+            Let`s <span className="text-red-1">Connect</span>
+          </h4>
           <p className="text-gray-1 mb-3">
             I`m always interested in new opportunities, collaborations,
             reprsentations, and exciting projects. Whether you have a question,
@@ -146,7 +152,7 @@ const Contact = () => {
                 autoComplete="email"
                 maxLength={254}
                 disabled={isSending}
-                placeholder="Enter Email Address"
+                placeholder="Enter Your Email Address"
                 className="w-full border border-gray-4 rounded-lg p-3 mb-3 mt-2 bg-[#101012]"
               />
             </div>

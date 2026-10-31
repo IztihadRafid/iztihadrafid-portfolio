@@ -8,7 +8,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 
 import { motion } from "motion/react";
 const About = () => {
-
   return (
     <div className=" mt-10 md:mt-14 lg:mt-16" id="about">
       <div className="flex flex-col items-center pt-10 md:mb-8 lg:mb-10 mb-0">
@@ -26,7 +25,7 @@ const About = () => {
             rootMargin="-120px"
             textAlign="center"
           />
-          
+
           <SplitText
             text="Me"
             className="text font-semibold text-red-1 lg:ml-3"
@@ -52,16 +51,17 @@ const About = () => {
             </h3>
             <br></br>
             <p className="md:text-xl text-lg  leading-8 text-gray-1">
-              I`m Md. Iztihad Rafid, a passionate Web Developer focused on new
-              modern, responsive, user-friendly interactive web applications.
+              A Frontend Developer focused on building robust, intuitive, and
+              high-performing web applications. I specialize in translating
+              complex requirements into functional user experiences, with an
+              emphasis on component-driven development, application state
+              management, API integration, and maintainable code.
               <br></br>
-              <br></br> I`ve experience working with modern tools like MERN
-              stack, Nextjs, TypeScript. I love to tur new ideas into real-world
-              applications by maintaining clean, resuable, scalable, and
-              efficient code. <br></br>
-              <br></br> My goal is to improve my development new skills in tech
-              fields and keep contribution to impactful projects that solve
-              real-world problems.
+              <br></br> Beyond development, I'm interested in software testing,
+              debugging, and improving application reliability. I continuously
+              explore modern engineering practices and leverage AI to enhance
+              productivity while maintaining code quality and technical
+              ownership.<br></br>
             </p>
           </div>
           <div>
@@ -146,11 +146,13 @@ const About = () => {
                 institute="North South University, Dhaka"
                 date="1st Oct, 2025 - 31st Mar, 2026"
                 responsibilities={[
-                  "Developed and optimized CMS frontend site using React.js, React-Bootstrap, React Formik and integrated backend APIs.",
-                  "Developed company websites using Next.js, TypeScript, Shadcn UI, WordPress and Elementor Pro.",
-                  "Integrated third-party services and RESTful APIs.",
-                  "Maintained responsive, user-friendly applications with cross-browser compatibility.",
-                  "Handled QA tasks using Jira, debugging, and testing checklists.",
+                  "Implemented and enhanced CMS features, including reusable UI components, dynamic content interfaces, and form workflows connected to backend APIs.",
+                  "Built and maintained corporate website pages with reusable layouts, structured content, and consistent user experiences.",
+                  "Implemented form handling and validation, managed API data integration, and addressed issues in frontend-to-backend communication.",
+                  "Implemented loading states and Suspense boundaries to manage asynchronous content rendering and improve the user experience during data loading.",
+                  "Developed and customized business website pages, improving layout consistency, content presentation, and responsive behavior.",
+                  "Identified and resolved UI, functionality, and integration issues through debugging and manual testing.",
+                  "Prepared test cases and checklists, reported bugs in Jira, and performed smoke, sanity, and regression testing to verify fixes.",
                 ]}
               />
             </motion.div>

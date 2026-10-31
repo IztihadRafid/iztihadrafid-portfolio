@@ -227,7 +227,7 @@ export default async function ProjectDetails({
           </div>
 
           {/* CTA */}
-          <div className="mt-10 rounded-2xl border border-red-1/20 bg-[linear-gradient(135deg,rgba(255,87,87,0.12),rgba(21,21,21,0)_65%)] p-6 md:p-8">
+          {/* <div className="mt-10 rounded-2xl border border-red-1/20 bg-[linear-gradient(135deg,rgba(255,87,87,0.12),rgba(21,21,21,0)_65%)] p-6 md:p-8">
             <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-red-1">
               Next step
             </p>
@@ -245,7 +245,7 @@ export default async function ProjectDetails({
               Start a conversation
               <ArrowUpRight className="h-4 w-4" />
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
