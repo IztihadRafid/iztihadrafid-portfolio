@@ -218,7 +218,7 @@ export function ScrollVideoHero({
         <VideoLayer videoRef={videoRef} src={src} poster={poster} />
 
         <div className="pointer-events-none absolute inset-0 " />
-        <div className="pointer-events-none absolute inset-0 bg-linear-to-r from-black-1/80 via-black-1/30 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-linear-to-r from-black-1/70 via-black-1/10 to-transparent" />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-linear-to-b from-black-1/75 to-transparent" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-black-1 via-black-1/45 to-transparent" />
 
@@ -270,8 +270,8 @@ export function ScrollVideoSection({
             overlayClassName,
           )}
         />
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-linear-to-b from-black-1 via-black-1/45 to-transparent" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-black-1 via-black-1/45 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-linear-to-b from-black-1 via-black-1/25 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-black-1 via-black-1/25 to-transparent" />
       </div>
 
       <div

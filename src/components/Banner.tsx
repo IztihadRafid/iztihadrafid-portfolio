@@ -53,7 +53,7 @@ const Banner = () => {
       <div className="mx-auto flex h-full w-full max-w-8xl flex-col pt-[72px]">
         <div className="flex flex-1 items-center px-6 py-6 md:px-10 md:py-10">
           <div className="flex w-full items-center justify-between gap-10">
-            <section className="max-w-2xl rounded-3xl  p-5  md:bg-transparent md:p-0 ">
+            <section className="max-w-2xl rounded-3xl p-5 md:bg-transparent md:p-0">
               <motion.div
                 style={
                   reduceMotion ? undefined : { opacity: copyOpacity, y: copyY }
