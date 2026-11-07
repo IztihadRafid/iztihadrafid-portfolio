@@ -197,12 +197,19 @@ const Particles: React.FC<ParticlesProps> = ({
     let animationFrameId: number;
     let lastTime = performance.now();
     let elapsed = 0;
+    let lastRender = 0;
 
     const update = (t: number) => {
       animationFrameId = requestAnimationFrame(update);
-      const delta = t - lastTime;
+      const delta = Math.min(t - lastTime, 100);
       lastTime = t;
       elapsed += delta * speed;
+
+      // The field is decorative and slow, so 30fps is imperceptible while it
+      // halves the WebGL work. Several sections paint `backdrop-blur` panels
+      // over this canvas, and those re-blur on every particle frame.
+      if (t - lastRender < 1000 / 30) return;
+      lastRender = t;
 
       program.uniforms.uTime.value = elapsed * 0.001;
 

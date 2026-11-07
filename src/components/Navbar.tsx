@@ -1,25 +1,20 @@
 import Image from "next/image";
 import logo from "../../public/assets/logo.webp";
 
-import {
-  Menu,
-  PhoneForwarded,
-} from "lucide-react";
+import { Menu, PhoneForwarded } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import Link from "next/link";
 
-
 const Navbar = () => {
   const navlinks = (
     <>
-      <ul className="flex gap-4">
+      <ul className="flex gap-4 ">
         <li className="cursor-pointer hover:text-red-1 text-lg">
           <Link href="/">Home</Link>
         </li>
@@ -32,7 +27,7 @@ const Navbar = () => {
         <li className="cursor-pointer hover:text-red-1 text-lg">
           <a href="#projects">Projects</a>
         </li>
-        
+
         {/* <li className="cursor-pointer hover:text-red-1 text-lg">
           <a href="#Blog">Blog</a>
         </li> */}
@@ -51,19 +46,19 @@ const Navbar = () => {
     </>
   );
   return (
-    <nav className=" text-white  p-4">
+    <nav className="sticky top-0 z-30 text-white p-4 bg-accent-1/90 backdrop-blur-sm border-gray-800">
       <div className="flex justify-between items-center lg:block max-w-8xl mx-auto">
         <div className="flex items-center justify-between">
           {/* Logo */}
-         <Link href="/">  <div className="logo flex items-center ">
-           <Image src={logo} width={45} alt="Logo"></Image>
-            <p className="text-white text-3xl mb-1">Rafid</p>
-          </div></Link>
-          {/* Nav Links for large device*/}
+          <Link href="/">
+            {" "}
+            <div className="logo flex items-center ">
+              <Image src={logo} width={45} alt="Logo"></Image>
+              <p className="text-white text-3xl mb-1">Rafid</p>
+            </div>
+          </Link>
           <div className="nav-links hidden lg:block">{navlinks}</div>
         </div>
-
-        {/* nav links for small device */}
         <section className="">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>

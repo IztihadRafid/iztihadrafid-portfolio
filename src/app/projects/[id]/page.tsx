@@ -225,27 +225,6 @@ export default async function ProjectDetails({
               </section>
             ))}
           </div>
-
-          {/* CTA */}
-          {/* <div className="mt-10 rounded-2xl border border-red-1/20 bg-[linear-gradient(135deg,rgba(255,87,87,0.12),rgba(21,21,21,0)_65%)] p-6 md:p-8">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-red-1">
-              Next step
-            </p>
-            <h2 className="mt-2 text-2xl font-semibold text-white">
-              Need something similar?
-            </h2>
-            <p className="mt-2 max-w-lg text-sm leading-6 text-gray-2">
-              I`m available for frontend, full-stack and QA work. Let`s talk
-              about your project.
-            </p>
-            <Link
-              href="/#contact"
-              className="mt-5 inline-flex h-10 items-center gap-2 rounded-lg bg-red-1 px-5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-[#e64d4d]"
-            >
-              Start a conversation
-              <ArrowUpRight className="h-4 w-4" />
-            </Link>
-          </div> */}
         </div>
       </div>
     </div>

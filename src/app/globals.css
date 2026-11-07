@@ -156,8 +156,14 @@
   body {
     @apply bg-background text-foreground;
   }
-  html {
+  @media (prefers-reduced-motion: no-preference) {
+    html {
       scroll-behavior: smooth;
+    }
+  }
+  /* Lenis animates the scroll itself; native CSS smoothing would fight it. */
+  html.lenis.lenis-smooth {
+      scroll-behavior: auto;
   }
   .font-raleway {
     @apply font-raleway;

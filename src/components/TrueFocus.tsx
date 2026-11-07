@@ -38,9 +38,25 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
   const containerRef = useRef<HTMLDivElement | null>(null);
   const wordRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const [focusRect, setFocusRect] = useState<FocusRect>({ x: 0, y: 0, width: 0, height: 0 });
+  const [inView, setInView] = useState<boolean>(false);
+
+  // Pause the word cycle while this row is off-screen. The CSS blur filter and
+  // the animated focus box are layout/paint heavy and would otherwise keep
+  // working (and janking the scroll) in sections the visitor cannot see.
+  useEffect(() => {
+    const node = containerRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      entries => setInView(entries.some(entry => entry.isIntersecting)),
+      { rootMargin: '120px' }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
-    if (!manualMode) {
+    if (!manualMode && inView) {
       const interval = setInterval(
         () => {
           setCurrentIndex(prev => (prev + 1) % words.length);
@@ -50,7 +66,7 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
 
       return () => clearInterval(interval);
     }
-  }, [manualMode, animationDuration, pauseBetweenAnimations, words.length]);
+  }, [manualMode, inView, animationDuration, pauseBetweenAnimations, words.length]);
 
   useEffect(() => {
     if (currentIndex === null || currentIndex === -1) return;

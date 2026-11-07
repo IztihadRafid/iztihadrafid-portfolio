@@ -133,6 +133,11 @@ const SplitText: React.FC<SplitTextProps> = ({
               },
               onComplete: () => {
                 animationCompletedRef.current = true;
+                // The split animation only runs once. Releasing will-change
+                // keeps each character from staying on its own compositor
+                // layer for the rest of the visit, which makes long-page
+                // scrolling noticeably cheaper.
+                gsap.set(targets, { willChange: 'auto' });
                 onCompleteRef.current?.();
               },
               willChange: 'transform, opacity',

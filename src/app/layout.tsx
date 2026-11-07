@@ -2,7 +2,9 @@
 import type { Metadata } from "next";
 import { Raleway, Geist } from "next/font/google";
 import "./globals.css";
+import "lenis/dist/lenis.css";
 import Navbar from "@/components/Navbar";
+import SmoothScroll from "@/components/SmoothScroll";
 import { cn } from "@/lib/utils";
 import { ToastProvider } from "@/components/toast-trigger";
 import Particles from "@/components/Particles";
@@ -42,10 +44,12 @@ export default function RootLayout({
         </div>
 
         <div className="relative z-10">
-          <ToastProvider maxToasts={3}>
-            <Navbar />
-            <main>{children}</main>
-          </ToastProvider>
+          <SmoothScroll>
+            <ToastProvider maxToasts={3}>
+              <Navbar />
+              <main>{children}</main>
+            </ToastProvider>
+          </SmoothScroll>
         </div>
       </body>
     </html>
